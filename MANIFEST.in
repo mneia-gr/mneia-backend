@@ -1,0 +1,3 @@
+include README.md
+recursive-include mneia_backend/static *
+recursive-include mneia_backend/templates *
