@@ -28,6 +28,7 @@ def _load_test_fixtures(django_db_blocker):
     fixtures = [
         "area-type",
         "area",  # depends on area-type
+        "gender",
     ]
     with django_db_blocker.unblock():
         for fixture in fixtures:

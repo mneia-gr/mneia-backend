@@ -1,0 +1,48 @@
+[
+    {
+        "model": "mneia_backend.gender",
+        "pk": "36d3d30a-839d-3eda-8cb3-29be4384e4a9",
+        "fields": {
+            "mbid": 1,
+            "name": "Male",
+            "parent": null,
+            "child_order": 1,
+            "description": null,
+            "created_in_mneia": "2025-01-10T18:55:00.000Z",
+            "updated_in_mneia": "2025-01-10T18:55:00.000Z"
+        }
+    },
+    {
+        "model": "django_musicbrainz_connector.gender",
+        "pk": 2,
+        "fields": {
+            "name": "Female",
+            "parent": null,
+            "child_order": 2,
+            "description": null,
+            "gid": "93452b5a-a947-30c8-934f-6a4056b151c2"
+        }
+    },
+    {
+        "model": "django_musicbrainz_connector.gender",
+        "pk": 100,
+        "fields": {
+            "name": "Fake Parent Gender",
+            "parent": null,
+            "child_order": 100,
+            "description": null,
+            "gid": "ae2e7ad4-e0fc-4c57-be02-df6b29d83b1e"
+        }
+    },
+    {
+        "model": "django_musicbrainz_connector.gender",
+        "pk": 101,
+        "fields": {
+            "name": "Fake Child Gender",
+            "parent": 100,
+            "child_order": 101,
+            "description": null,
+            "gid": "86562cca-1cbd-40f6-95b5-c3a341f7531d"
+        }
+    }
+]
