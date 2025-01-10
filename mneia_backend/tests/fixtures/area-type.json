@@ -1,0 +1,37 @@
+[
+    {
+      "model": "mneia_backend.areatype",
+      "pk": "06dd0ae4-8c74-30bb-b43d-95dcedf961de",
+      "fields": {
+        "mbid": 1,
+        "name": "Country",
+        "parent": null,
+        "child_order": 1,
+        "description": "Country is used for areas included (or previously included) in ISO 3166-1, e.g. United States.",
+        "created_in_mneia": "2025-01-10T13:42:00.000Z",
+        "updated_in_mneia": "2025-01-10T13:42:00.000Z"
+      }
+    },
+    {
+      "model": "django_musicbrainz_connector.areatype",
+      "pk": 1,
+      "fields": {
+        "name": "Country",
+        "parent": null,
+        "child_order": 1,
+        "description": "Country is used for areas included (or previously included) in ISO 3166-1, e.g. United States.",
+        "gid": "06dd0ae4-8c74-30bb-b43d-95dcedf961de"
+      }
+    },
+    {
+      "model": "django_musicbrainz_connector.areatype",
+      "pk": 3,
+      "fields": {
+        "name": "City",
+        "parent": 1,
+        "child_order": 3,
+        "description": "City is used for settlements of any size, including towns and villages.",
+        "gid": "6fd8f29a-3d0a-32fc-980d-ea697b69da78"
+      }
+    }
+]

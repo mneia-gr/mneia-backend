@@ -1,17 +1,32 @@
 #!/usr/bin/env sh
+
 # print "PASSED" in green colour:
 PASSED() {
     printf '\033[0;32mPASSED\033[0m\n';
 }
+
 # no need to print "PASSED" for `./manage.py check`, it already prints its own useful output
 ./manage.py check                                                       || exit 1
+
 echo -n 'flake8 '
 flake8 .                                                    && PASSED   || exit 1
+
 echo -n 'black '
 black --quiet --check --diff .                              && PASSED   || exit 1
+
 echo -n 'isort '
 isort --quiet --check-only --diff .                         && PASSED   || exit 1
+
 echo -n 'bandit '
 bandit --quiet --recursive . --configfile pyproject.toml    && PASSED   || exit 1
-coverage run -m pytest -vv
+
+# --capture no -- Don't capture stdout/stderr, instead show it in the shell
+# See: https://docs.pytest.org/en/stable/how-to/capture-stdout-stderr.html
+#
+# --trace-config -- Show which plugins are loaded
+# See: https://docs.pytest.org/en/stable/how-to/plugins.html
+#
+# --no-migrations -- Don't apply Django migrations, instead inspect the models to create the test database
+# See: https://pytest-django.readthedocs.io/en/latest/database.html#no-migrations-disable-django-migrations
+coverage run -m pytest -vv --capture no --trace-config --no-migrations
 coverage report

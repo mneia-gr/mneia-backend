@@ -16,6 +16,7 @@ settings.configure(
         # "django.contrib.sessions",
         "django.contrib.messages",
         # "django.contrib.staticfiles",
+        "django_musicbrainz_connector",
         "mneia_backend",
     ],
     TEMPLATES=[
