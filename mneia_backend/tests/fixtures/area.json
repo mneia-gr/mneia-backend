@@ -1,0 +1,40 @@
+[
+    {
+        "model": "mneia_backend.area",
+        "pk": "803db0ca-b6ed-3bbc-aeb8-f89efd0a2168",
+        "fields": {
+            "mbid": 84,
+            "name": "Greece",
+            "type": "06dd0ae4-8c74-30bb-b43d-95dcedf961de",
+            "edits_pending": 0,
+            "last_updated": "2013-05-27 13:12:47.859578+00",
+            "begin_date_year": null,
+            "begin_date_month": null,
+            "begin_date_day": null,
+            "end_date_year": null,
+            "end_date_month": null,
+            "end_date_day": null,
+            "ended": false,
+            "created_in_mneia": "2025-01-10T18:28:00.000Z",
+            "updated_in_mneia": "2025-01-10T18:28:00.000Z"
+        }
+    },
+    {
+        "model": "django_musicbrainz_connector.area",
+        "pk": 103,
+        "fields": {
+            "gid": "390b05d4-11ec-3bce-a343-703a366b34a5",
+            "name": "Ireland",
+            "type": 1,
+            "edits_pending": 0,
+            "last_updated": "2013-05-27 14:05:21.98788+00",
+            "begin_date_year": null,
+            "begin_date_month": null,
+            "begin_date_day": null,
+            "end_date_year": null,
+            "end_date_month": null,
+            "end_date_day": null,
+            "ended": false
+        }
+    }
+]
