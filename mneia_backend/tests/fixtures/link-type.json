@@ -1,0 +1,68 @@
+[
+    {
+        "model": "mneia_backend.linktype",
+        "pk": "a3005666-a872-32c3-ad06-98af558e99b0",
+        "fields": {
+            "mbid": 278,
+            "parent": null,
+            "child_order": 0,
+            "entity_type0": "recording",
+            "entity_type1": "work",
+            "name": "performance",
+            "description": "This is used to link works to their recordings.",
+            "link_phrase": "{acappella:a cappella} {live} {medley:medley including a} {partial} {instrumental} {cover} {karaoke} {demo} recording of",
+            "reverse_link_phrase": "{acappella:a cappella} {live} {medley:medleys including} {partial} {instrumental} {cover} {karaoke} {demo} recordings",
+            "long_link_phrase": "is {acappella:an|a} {acappella:a cappella} {live} {medley:medley including a} {partial} {instrumental} {cover} {karaoke} {demo} recording of",
+            "priority": 0,
+            "last_updated": "2024-11-06 13:46:01.649493+00",
+            "is_deprecated": false,
+            "has_dates": true,
+            "entity0_cardinality": 0,
+            "entity1_cardinality": 1,
+            "created_in_mneia": "2025-01-11T14:56:00.000Z",
+            "updated_in_mneia": "2025-01-11T14:56:00.000Z"
+        }
+    },
+    {
+        "model": "django_musicbrainz_connector.linktype",
+        "pk": 257,
+        "fields": {
+            "parent": null,
+            "child_order": 1,
+            "gid": "44598c7e-01f9-438b-950a-183720a2cbbe",
+            "entity_type0": "recording",
+            "entity_type1": "url",
+            "name": "get the music",
+            "description": "",
+            "link_phrase": "get the music",
+            "reverse_link_phrase": "get the music",
+            "long_link_phrase": "get the music",
+            "last_updated": "2014-05-18 09:46:36.704131+00",
+            "is_deprecated": false,
+            "has_dates": false,
+            "entity0_cardinality": 0,
+            "entity1_cardinality": 0
+        }
+    },
+    {
+        "model": "django_musicbrainz_connector.linktype",
+        "pk": 255,
+        "fields": {
+            "parent": 257,
+            "child_order": 1,
+            "gid": "45d0cbc5-d65b-4e77-bdfd-8a75207cb5c5",
+            "entity_type0": "recording",
+            "entity_type1": "url",
+            "name": "download for free",
+            "description": "This links a recording to a page where it can be legally downloaded for free.",
+            "link_phrase": "download for free",
+            "reverse_link_phrase": "free download page for",
+            "long_link_phrase": "can be downloaded for free at",
+            "last_updated": "2014-04-27 11:54:57.725334+00",
+            "is_deprecated": false,
+            "has_dates": true,
+            "entity0_cardinality": 0,
+            "entity1_cardinality": 0
+        } 
+    }
+]
