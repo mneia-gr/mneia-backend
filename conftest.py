@@ -33,6 +33,7 @@ def _load_test_fixtures(django_db_blocker):
         "artist-type",  # DMC-exclusive, required for testing person
         "artist",  # DMC-exclusive, required for testing person, depends on artist-type, area, gender
         "person",  # depends on area and gender
+        "photograph",
     ]
     with django_db_blocker.unblock():
         for fixture in fixtures:

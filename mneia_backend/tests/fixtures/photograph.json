@@ -1,0 +1,12 @@
+[
+    {
+        "model": "mneia_backend.photograph",
+        "pk": "a6bade31-e909-496d-bcd8-f6cfb241365d",
+        "fields": {
+            "name": "Το όνομα της φωτογραφίας",
+            "description": "Η περιγραφή της φωτογραφίας",
+            "created_in_mneia": "2025-01-11T13:56:00.000Z",
+            "updated_in_mneia": "2025-01-11T13:56:00.000Z"
+        }
+    }
+]
