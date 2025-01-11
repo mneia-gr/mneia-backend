@@ -12,6 +12,30 @@ from mneia_backend.models.gender import Gender
 
 
 class Person(abstract.Model):
+    """
+    MusicBrainz structure:
+
+    ```
+    Artist
+    |
+    +--> Artist Type (e.g. "Person")
+    |
+    +--> Gender
+    |
+    +--> Area --> Area Type
+    ```
+
+    Mneia structure:
+
+    ```
+    Person
+    |
+    +--> Gender
+    |
+    +--> Area --> Area Type
+    ```
+    """
+
     mbid = models.IntegerField("MBID")
     name = models.CharField(max_length=255)
     sort_name = models.CharField("Sort Name", max_length=255)
