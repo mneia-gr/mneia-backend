@@ -1,0 +1,24 @@
+[
+    {
+        "model": "mneia_backend.person",
+        "pk": "482a86e0-4d49-4d26-8406-3d06f01f0285",
+        "fields": {
+            "mbid": 205528,
+            "name": "Μάρκος Βαμβακάρης",
+            "sort_name": "Vamvakaris, Markos",
+            "begin_date_year": 1905,
+            "begin_date_month": 5,
+            "begin_date_day": 10,
+            "end_date_year": 1972,
+            "end_date_month": 2,
+            "end_date_day": 8,
+            "area": "803db0ca-b6ed-3bbc-aeb8-f89efd0a2168",
+            "gender": "36d3d30a-839d-3eda-8cb3-29be4384e4a9",
+            "edits_pending": 0,
+            "last_updated": "2017-10-20 09:21:16.739978+00",
+            "ended": true,
+            "created_in_mneia": "2025-01-11T09:05:00.000Z",
+            "updated_in_mneia": "2025-01-11T09:05:00.000Z"
+        }
+    }
+]

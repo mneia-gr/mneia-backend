@@ -1,0 +1,24 @@
+[
+    {
+        "model": "django_musicbrainz_connector.artisttype",
+        "pk": 1,
+        "fields": {
+            "name": "Person",
+            "parent": null,
+            "child_order": 1,
+            "description": "This indicates an individual person, be it under its legal name (“John Lennon”), or a performance name (“Sting”).",
+            "gid": "b6e035f4-3ce9-331c-97df-83397230b0df"
+        }
+    },
+    {
+        "model": "django_musicbrainz_connector.artisttype",
+        "pk": 2,
+        "fields": {
+            "name": "Group",
+            "parent": null,
+            "child_order": 2,
+            "description": "A grouping of multiple musicians who perform together (in some cases, some or all of the members might differ in different performances or recordings).",
+            "gid": "e431f5f6-b5d2-343d-8b36-72607fffb74b"
+        }
+    }
+]
