@@ -30,3 +30,4 @@ class PhotographViewSet(viewsets.ModelViewSet):
 @admin.register(Photograph)
 class PhotographAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Photograph._meta.fields]
+    readonly_fields = ["id"]

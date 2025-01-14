@@ -27,3 +27,4 @@ class LinkPersonPhotographViewSet(rest_framework.viewsets.ModelViewSet):
 @admin.register(LinkPersonPhotograph)
 class LinkPersonPhotographAdmin(admin.ModelAdmin):
     list_display = [field.name for field in LinkPersonPhotograph._meta.fields]
+    readonly_fields = ["id", "mbid", "edits_pending", "link_order", "entity0_credit", "entity1_credit"]

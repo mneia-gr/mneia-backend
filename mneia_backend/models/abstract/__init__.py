@@ -48,13 +48,13 @@ class LinkModel(Model):
     """
 
     # mbid is optional in Mneia, because there are links created locally that are not imported from MusicBrainz:
-    mbid = models.IntegerField("MBID", help_text="The MusicBrainz integer ID", null=True)
+    mbid = models.IntegerField("MBID", help_text="The MusicBrainz integer ID", null=True, blank=True)
     link = models.ForeignKey("Link", on_delete=models.PROTECT)
     edits_pending = models.PositiveIntegerField("Edits Pending", default=0)
     last_updated = models.DateTimeField("Last Updated", auto_now=True)
     link_order = models.PositiveIntegerField("Link Order", default=0, null=True)
-    entity0_credit = models.TextField(default="")
-    entity1_credit = models.TextField(default="")
+    entity0_credit = models.TextField(default="", blank=True)
+    entity1_credit = models.TextField(default="", blank=True)
 
     class Meta:
         abstract = True

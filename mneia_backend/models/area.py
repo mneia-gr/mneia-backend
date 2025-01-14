@@ -10,7 +10,7 @@ from mneia_backend.models.area_type import AreaType
 
 
 class Area(abstract.Model):
-    mbid = models.IntegerField("ID")
+    mbid = models.IntegerField("MBID")
     name = models.CharField(max_length=255)
     type = models.ForeignKey("AreaType", on_delete=models.PROTECT, null=True)
     edits_pending = models.PositiveIntegerField("Edits Pending", default=0)

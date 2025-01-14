@@ -36,25 +36,27 @@ class Person(abstract.Model):
     ```
     """
 
-    mbid = models.IntegerField("MBID")
+    # MBID is optional because there are people in Mneia that are not imported from MusicBrainz:
+    mbid = models.IntegerField("MBID", null=True, blank=True)
     name = models.CharField(max_length=255)
     sort_name = models.CharField("Sort Name", max_length=255)
-    begin_date_year = models.SmallIntegerField("Begin Date Year", null=True)
-    begin_date_month = models.SmallIntegerField("Begin Date Month", null=True)
-    begin_date_day = models.SmallIntegerField("Begin Date Day", null=True)
-    end_date_year = models.SmallIntegerField("End Date Year", null=True)
-    end_date_month = models.SmallIntegerField("End Date Month", null=True)
-    end_date_day = models.SmallIntegerField("End Date Day", null=True)
+    begin_date_year = models.SmallIntegerField("Begin Date Year", null=True, blank=True)
+    begin_date_month = models.SmallIntegerField("Begin Date Month", null=True, blank=True)
+    begin_date_day = models.SmallIntegerField("Begin Date Day", null=True, blank=True)
+    end_date_year = models.SmallIntegerField("End Date Year", null=True, blank=True)
+    end_date_month = models.SmallIntegerField("End Date Month", null=True, blank=True)
+    end_date_day = models.SmallIntegerField("End Date Day", null=True, blank=True)
     area = models.ForeignKey("Area", null=True, on_delete=models.PROTECT)
     gender = models.ForeignKey("Gender", null=True, on_delete=models.PROTECT)
-    comment = models.CharField(max_length=255, default="")
+    comment = models.CharField(max_length=255, default="", blank=True)
     edits_pending = models.PositiveIntegerField("Edits Pending", default=0)
-    last_updated = models.DateTimeField("Last Updated")
+    last_updated = models.DateTimeField("Last Updated", auto_now=True)
     ended = models.BooleanField("Ended?", default=False)
     begin_area = models.ForeignKey(
         "Area",
         verbose_name="Begin Area",
         null=True,
+        blank=True,
         on_delete=models.PROTECT,
         related_name="people_begin_area",
     )
@@ -62,6 +64,7 @@ class Person(abstract.Model):
         "Area",
         verbose_name="End Area",
         null=True,
+        blank=True,
         on_delete=models.PROTECT,
         related_name="people_end_area",
     )
