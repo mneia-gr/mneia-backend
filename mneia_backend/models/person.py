@@ -146,3 +146,5 @@ class PersonViewSet(viewsets.ModelViewSet):
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Person._meta.fields]
+
+    readonly_fields = ["id", "mbid", "edits_pending", "last_updated"]

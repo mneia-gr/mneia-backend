@@ -11,14 +11,14 @@ from mneia_backend.utils import get_musicbrainz_identifier_type
 class Link(abstract.Model):
     mbid = models.IntegerField("MBID", null=True)  # optional, because there are links specific to Mneia
     link_type = models.ForeignKey("LinkType", verbose_name="Type", related_name="links", on_delete=models.PROTECT)
-    begin_date_year = models.SmallIntegerField("Begin Date Year", null=True)
-    begin_date_month = models.SmallIntegerField("Begin Date Month", null=True)
-    begin_date_day = models.SmallIntegerField("Begin Date Day", null=True)
-    end_date_year = models.SmallIntegerField("End Date Year", null=True)
-    end_date_month = models.SmallIntegerField("End Date Month", null=True)
-    end_date_day = models.SmallIntegerField("End Date Day", null=True)
+    begin_date_year = models.SmallIntegerField("Begin Date Year", null=True, blank=True)
+    begin_date_month = models.SmallIntegerField("Begin Date Month", null=True, blank=True)
+    begin_date_day = models.SmallIntegerField("Begin Date Day", null=True, blank=True)
+    end_date_year = models.SmallIntegerField("End Date Year", null=True, blank=True)
+    end_date_month = models.SmallIntegerField("End Date Month", null=True, blank=True)
+    end_date_day = models.SmallIntegerField("End Date Day", null=True, blank=True)
     attribute_count = models.IntegerField("Attribute Count", default=0)
-    created = models.DateTimeField("Created")
+    created = models.DateTimeField("Created", auto_now_add=True)
     ended = models.BooleanField("Ended?", default=False)
 
     class Meta:
@@ -94,3 +94,5 @@ class LinkViewSet(rest_framework.viewsets.ModelViewSet):
 @admin.register(Link)
 class LinkAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Link._meta.fields]
+
+    readonly_fields = ["id", "mbid"]

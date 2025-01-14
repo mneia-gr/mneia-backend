@@ -7,6 +7,14 @@ from rest_framework.response import Response
 
 from mneia_backend.models import abstract
 
+ENTITY_0_CHOICES = [
+    ("person", "person"),
+]
+
+ENTITY_1_CHOICES = [
+    ("photograph", "photograph"),
+]
+
 
 class LinkType(abstract.Model):
     """
@@ -34,11 +42,11 @@ class LinkType(abstract.Model):
     entity1_cardinality = 1
     """
 
-    mbid = models.IntegerField("ID", null=True)  # optional, because there are link types specific to Mneia
+    mbid = models.IntegerField("MBID", null=True)  # optional, because there are link types specific to Mneia
     parent = models.ForeignKey("self", null=True, on_delete=models.PROTECT)
     child_order = models.IntegerField("Child Order", default=0)
-    entity_type0 = models.CharField("Entity Type 0", max_length=50)
-    entity_type1 = models.CharField("Entity Type 1", max_length=50)
+    entity_type0 = models.CharField("Entity Type 0", max_length=50, choices=ENTITY_0_CHOICES)
+    entity_type1 = models.CharField("Entity Type 1", max_length=50, choices=ENTITY_1_CHOICES)
     name = models.CharField(max_length=255)
     description = models.TextField()
     link_phrase = models.CharField("Link Phrase", max_length=255)
@@ -112,3 +120,15 @@ class LinkTypeViewSet(viewsets.ModelViewSet):
 @admin.register(LinkType)
 class LinkTypeAdmin(admin.ModelAdmin):
     list_display = [field.name for field in LinkType._meta.fields]
+
+    readonly_fields = [
+        "id",
+        "mbid",
+        "parent",
+        "child_order",
+        "priority",
+        "is_deprecated",
+        "has_dates",
+        "entity0_cardinality",
+        "entity1_cardinality",
+    ]
