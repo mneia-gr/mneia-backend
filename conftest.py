@@ -35,6 +35,7 @@ def _load_test_fixtures(django_db_blocker):
         "person",  # depends on area and gender
         "photograph",
         "link-type",
+        "link",  # depends on link-type
     ]
     with django_db_blocker.unblock():
         for fixture in fixtures:

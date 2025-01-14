@@ -24,6 +24,51 @@
         }
     },
     {
+        "model": "mneia_backend.linktype",
+        "pk": "11111111-2222-3333-4444-98af558e99b0",
+        "fields": {
+            "mbid": 10000,
+            "parent": null,
+            "child_order": 0,
+            "entity_type0": "foo",
+            "entity_type1": "bar",
+            "name": "foobar",
+            "description": "foobar",
+            "link_phrase": "foobar",
+            "reverse_link_phrase": "foobar",
+            "long_link_phrase": "foobar",
+            "priority": 0,
+            "last_updated": "2024-11-06 13:46:01.649493+00",
+            "is_deprecated": false,
+            "has_dates": true,
+            "entity0_cardinality": 0,
+            "entity1_cardinality": 1,
+            "created_in_mneia": "2025-01-11T14:56:00.000Z",
+            "updated_in_mneia": "2025-01-11T14:56:00.000Z"
+        }
+    },
+    {
+        "model": "django_musicbrainz_connector.linktype",
+        "pk": 10000,
+        "fields": {
+            "parent": null,
+            "child_order": 1,
+            "gid": "11111111-2222-3333-4444-98af558e99b0",
+            "entity_type0": "foo",
+            "entity_type1": "bar",
+            "name": "foobar",
+            "description": "foobar",
+            "link_phrase": "foobar",
+            "reverse_link_phrase": "foobar",
+            "long_link_phrase": "foobar",
+            "last_updated": "2014-05-18 09:46:36.704131+00",
+            "is_deprecated": false,
+            "has_dates": false,
+            "entity0_cardinality": 0,
+            "entity1_cardinality": 0
+        }
+    },
+    {
         "model": "django_musicbrainz_connector.linktype",
         "pk": 257,
         "fields": {
