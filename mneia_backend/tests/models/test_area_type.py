@@ -1,41 +1,9 @@
-import datetime
 import uuid
 
 import pytest
-from freezegun import freeze_time
 from rest_framework.test import APIClient
 
 from mneia_backend.models.area_type import AreaType
-
-
-def test_area_type_id_is_uuid():
-    """
-    Tests that the automatically generated ID for a new instance is a UUID. The functionality tested here comes from the
-    abstract model in `mneia_backend.models.abstract.Model`.
-    """
-    area_type = AreaType(name="Test Area Type")
-    assert isinstance(area_type.id, uuid.UUID)
-
-
-@pytest.mark.django_db
-def test_area_type_created_and_updated_timestamp():
-    """
-    Tests that the automatically generated timestamp fields for a new instance are created and updated correctly. The
-    functionality tested here comes from the abstract model in `mneia_backend.models.abstract.Model`.
-    """
-
-    # When the instance is first created, both timestamps are the same:
-    with freeze_time("2025-01-10 13:09:00"):
-        area_type = AreaType.objects.create(name="Test Area Type", mbid=0, child_order=0)
-        assert area_type.created_in_mneia == datetime.datetime(2025, 1, 10, 13, 9, 0, tzinfo=datetime.timezone.utc)
-        assert area_type.updated_in_mneia == datetime.datetime(2025, 1, 10, 13, 9, 0, tzinfo=datetime.timezone.utc)
-
-    # When the instance is updated, only the "updated" timestamp changes:
-    with freeze_time("2025-01-10 13:13:00"):
-        area_type.name = "Updated Test Area Type"
-        area_type.save()
-        assert area_type.created_in_mneia == datetime.datetime(2025, 1, 10, 13, 9, 0, tzinfo=datetime.timezone.utc)
-        assert area_type.updated_in_mneia == datetime.datetime(2025, 1, 10, 13, 13, 0, tzinfo=datetime.timezone.utc)
 
 
 @pytest.mark.django_db
