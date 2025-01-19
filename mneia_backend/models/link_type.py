@@ -34,7 +34,6 @@ class LinkType(abstract.Model):
                           {karaoke} {demo} recordings
     long_link_phrase    = is {acappella:an|a} {acappella:a cappella} {live} {medley:medley including a} {partial}
                           {instrumental} {cover} {karaoke} {demo} recording of
-    priority            = None
     last_updated        = 2024-11-06 13:46:01.649493+00
     is_deprecated       = False
     has_dates           = True
@@ -52,7 +51,6 @@ class LinkType(abstract.Model):
     link_phrase = models.CharField("Link Phrase", max_length=255)
     reverse_link_phrase = models.CharField("Reverse Link Phrase", max_length=255)
     long_link_phrase = models.CharField("Long Link Phrase", max_length=255)
-    priority = models.IntegerField(default=0)
     last_updated = models.DateTimeField("Last Updated", auto_now=True)
     is_deprecated = models.BooleanField("Is Deprecated?", default=False)
     has_dates = models.BooleanField("Has Dates?", default=True)
@@ -103,7 +101,6 @@ class LinkTypeViewSet(viewsets.ModelViewSet):
                 link_phrase=mb_instance.link_phrase,
                 reverse_link_phrase=mb_instance.reverse_link_phrase,
                 long_link_phrase=mb_instance.long_link_phrase,
-                priority=mb_instance.priority,
                 last_updated=mb_instance.last_updated,
                 is_deprecated=mb_instance.is_deprecated,
                 has_dates=mb_instance.has_dates,
@@ -126,7 +123,6 @@ class LinkTypeAdmin(admin.ModelAdmin):
         "mbid",
         "parent",
         "child_order",
-        "priority",
         "is_deprecated",
         "has_dates",
         "entity0_cardinality",
