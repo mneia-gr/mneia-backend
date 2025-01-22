@@ -5,6 +5,7 @@ from mneia_backend.models.area import AreaViewSet
 from mneia_backend.models.area_type import AreaTypeViewSet
 from mneia_backend.models.gender import GenderViewSet
 from mneia_backend.models.link import LinkViewSet
+from mneia_backend.models.link_attribute_type import LinkAttributeTypeViewSet
 from mneia_backend.models.link_type import LinkTypeViewSet
 from mneia_backend.models.person import PersonViewSet
 
@@ -13,6 +14,7 @@ mneia_router.register(r"areas", AreaViewSet)
 mneia_router.register(r"area-types", AreaTypeViewSet)
 mneia_router.register(r"genders", GenderViewSet)
 mneia_router.register(r"link-types", LinkTypeViewSet)
+mneia_router.register(r"link-attribute-types", LinkAttributeTypeViewSet)
 mneia_router.register(r"links", LinkViewSet)
 mneia_router.register(r"people", PersonViewSet)
 
