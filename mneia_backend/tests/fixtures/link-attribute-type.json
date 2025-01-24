@@ -1,5 +1,9 @@
 [
     {
+        "## COMMENTS ##": [
+            "This LinkAttributeType is specific to Mneia. It does not exist in the MusicBrainz database, so it does",
+            "not have an MBID."
+        ],
         "model": "mneia_backend.linkattributetype",
         "pk": "fb570822-66e6-4558-aed8-35f76938b12b",
         "fields": {
@@ -15,6 +19,29 @@
         }
     },
     {
+        "## COMMENTS ##": [
+            "This LinkAttributeType exists in BOTH Mneia and the MusicBrainz database. It is used to unit-test",
+            "the import functionality of the LinkAttribute model."
+        ],
+        "model": "mneia_backend.linkattributetype",
+        "pk": "9f63c4ba-b76f-40d5-9e99-2fb08bd4c286",
+        "fields": {
+            "mbid": 22222,
+            "parent": null,
+            "root": "fb570822-66e6-4558-aed8-35f76938b12b",
+            "child_order": 0,
+            "name": "something",
+            "description": "something",
+            "last_updated": "2024-11-06 13:46:01.649493+00",
+            "created_in_mneia": "2025-01-22T11:37:00.000Z",
+            "updated_in_mneia": "2025-01-22T11:37:00.000Z"
+        }
+    },
+    {
+        "## COMMENTS ##": [
+            "This LinkAttributeType exists in the MusicBrainz database but not in Mneia, and it is used to test the",
+            "import functionality. Notice that it has no parent."
+        ],
         "model": "django_musicbrainz_connector.linkattributetype",
         "pk": 3,
         "fields": {
@@ -28,6 +55,10 @@
         }
     },
     {
+        "## COMMENTS ##": [
+            "This LinkAttributeType exists in the MusicBrainz database but not in Mneia, and it is used to test the",
+            "import functionality when the instance has a parent."
+        ],
         "model": "django_musicbrainz_connector.linkattributetype",
         "pk": 4,
         "fields": {
@@ -37,6 +68,23 @@
             "gid": "8e2a3255-87c2-4809-a174-98cb3704f1a5",
             "name": "lead vocals",
             "description": "Lead or solo vocal",
+            "last_updated": "2013-04-11 12:11:57.030828+00"
+        }
+    },
+    {
+        "## COMMENTS ##": [
+            "This LinkAttributeType exists in BOTH Mneia and the MusicBrainz database. It is used to unit-test",
+            "the import functionality of the LinkAttribute model."
+        ],
+        "model": "django_musicbrainz_connector.linkattributetype",
+        "pk": 22222,
+        "fields": {
+            "parent": 3,
+            "root": 3,
+            "child_order": 0,
+            "gid": "9f63c4ba-b76f-40d5-9e99-2fb08bd4c286",
+            "name": "something",
+            "description": "something",
             "last_updated": "2013-04-11 12:11:57.030828+00"
         }
     }

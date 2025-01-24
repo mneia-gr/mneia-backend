@@ -20,7 +20,23 @@
     },
     {
         "model": "django_musicbrainz_connector.link",
-        "pk": "27098",
+        "pk": 11111,
+        "fields": {
+            "link_type": 10000,
+            "begin_date_year": null,
+            "begin_date_month": null,
+            "begin_date_day": null,
+            "end_date_year": null,
+            "end_date_month": null,
+            "end_date_day": null,
+            "attribute_count": 0,
+            "created": "2011-05-16 15:03:23.368437+00",
+            "ended": false
+        }
+    },
+    {
+        "model": "django_musicbrainz_connector.link",
+        "pk": 27098,
         "fields": {
             "link_type": 10000,
             "begin_date_year": null,

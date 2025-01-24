@@ -2,6 +2,7 @@ from mneia_backend.models.area import Area
 from mneia_backend.models.area_type import AreaType
 from mneia_backend.models.gender import Gender
 from mneia_backend.models.link import Link
+from mneia_backend.models.link_attribute import LinkAttribute
 from mneia_backend.models.link_attribute_type import LinkAttributeType
 from mneia_backend.models.link_type import LinkType
 from mneia_backend.models.links.person_photograph import LinkPersonPhotograph
@@ -13,6 +14,7 @@ __all__ = [
     "AreaType",
     "Gender",
     "Link",
+    "LinkAttribute",
     "LinkAttributeType",
     "LinkPersonPhotograph",
     "LinkType",
