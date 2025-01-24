@@ -5,14 +5,14 @@ from rest_framework.test import APIClient
 @pytest.mark.django_db
 def test_link_api_get_by_uuid():
     api_client = APIClient()
-    response = api_client.get("/links/b30318e0-f672-466c-95c4-c9a7c51069fa/")  # from fixture
+    response = api_client.get("/links/956d1ec2-33b2-4cd6-8832-1bbcd0d42661/")  # from fixture
     assert response.status_code == 200
 
 
 @pytest.mark.django_db
 def test_link_api_get_by_mbid():
     api_client = APIClient()
-    response = api_client.get("/links/159/")  # from fixture
+    response = api_client.get("/links/11111/")  # from fixture
     assert response.status_code == 200
 
 

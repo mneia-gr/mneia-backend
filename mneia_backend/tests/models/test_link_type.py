@@ -8,8 +8,8 @@ from mneia_backend.models import LinkType
 
 @pytest.mark.django_db
 def test_link_type_str():
-    link_type = LinkType.objects.get(id="a3005666-a872-32c3-ad06-98af558e99b0")
-    assert str(link_type) == "performance: recording -> work"
+    link_type = LinkType.objects.get(id="2795ae85-2369-44ff-84e4-879045de032c")
+    assert str(link_type) == "subject: person -> photograph"
 
 
 @pytest.mark.django_db

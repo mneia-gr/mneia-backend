@@ -37,6 +37,7 @@ def _load_test_fixtures(django_db_blocker):
         "link-type",
         "link",  # depends on link-type
         "link-attribute-type",
+        "link-person-photograph",  # depends on link, person, and photograph
     ]
     with django_db_blocker.unblock():
         for fixture in fixtures:

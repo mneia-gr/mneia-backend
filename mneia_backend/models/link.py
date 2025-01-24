@@ -42,7 +42,7 @@ class LinkViewSet(rest_framework.viewsets.ModelViewSet):
 
         Either of these calls should work:
 
-            GET /links/b30318e0-f672-466c-95c4-c9a7c51069fa
+            GET /links/956d1ec2-33b2-4cd6-8832-1bbcd0d42661/
             GET /links/159
         """
         pk = self.kwargs["pk"]

@@ -8,8 +8,8 @@ from mneia_backend.models.person import Person
 
 @pytest.mark.django_db
 def test_person_str():
-    person = Person.objects.get(id="482a86e0-4d49-4d26-8406-3d06f01f0285")  # from fixture
-    assert str(person) == "Μάρκος Βαμβακάρης"
+    person = Person.objects.get(id="63eec1f5-f535-46a0-9fd3-6826a4f09e5c")  # from fixture
+    assert str(person) == "Κυβέλη"
 
 
 @pytest.mark.django_db
@@ -27,17 +27,17 @@ def test_person_api_import_raises_integrity_error():
 def test_person_api_import():
     api_client = APIClient()
 
-    response = api_client.get("/people/64bf8e96-63e3-4557-8a84-c0df7ad8d18d/")
+    response = api_client.get("/people/754a1dd2-7379-4dcb-bfdb-a03459b9f530/")
     assert response.status_code == 404  # assert that the Person does not exist before the import
 
-    response = api_client.post("/people/import/", data={"mbid": 205524})
+    response = api_client.post("/people/import/", data={"mbid": 160715})
     assert response.status_code == 200  # assert that the import worked
 
-    response = api_client.get("/people/64bf8e96-63e3-4557-8a84-c0df7ad8d18d/")
+    response = api_client.get("/people/754a1dd2-7379-4dcb-bfdb-a03459b9f530/")
     assert response.status_code == 200  # assert that the Person exists after the import
 
     # assert that the foreign key fields have the correct values:
     assert response.data["area"] == uuid.UUID("803db0ca-b6ed-3bbc-aeb8-f89efd0a2168")
     assert response.data["begin_area"] == uuid.UUID("803db0ca-b6ed-3bbc-aeb8-f89efd0a2168")
     assert response.data["end_area"] == uuid.UUID("803db0ca-b6ed-3bbc-aeb8-f89efd0a2168")
-    assert response.data["gender"] == uuid.UUID("36d3d30a-839d-3eda-8cb3-29be4384e4a9")
+    assert response.data["gender"] == uuid.UUID("93452b5a-a947-30c8-934f-6a4056b151c2")

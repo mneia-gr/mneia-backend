@@ -1,16 +1,16 @@
 [
     {
         "model": "mneia_backend.gender",
-        "pk": "36d3d30a-839d-3eda-8cb3-29be4384e4a9",
+        "pk": "93452b5a-a947-30c8-934f-6a4056b151c2",
         "fields": {
-            "mbid": 1,
-            "name": "Male",
-            "parent": null,
-            "child_order": 1,
+            "child_order": 2,
+            "created_in_mneia": "2025-01-14 13:42:35.021806+00:00",
             "description": null,
-            "created_in_mneia": "2025-01-10T18:55:00.000Z",
-            "updated_in_mneia": "2025-01-10T18:55:00.000Z"
-        }
+            "mbid": 2,
+            "name": "Female",
+            "parent": null,
+            "updated_in_mneia": "2025-01-14 13:42:35.021828+00:00"
+          }
     },
     {
         "model": "django_musicbrainz_connector.gender",

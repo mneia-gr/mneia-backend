@@ -1,10 +1,10 @@
 [
     {
         "model": "mneia_backend.link",
-        "pk": "b30318e0-f672-466c-95c4-c9a7c51069fa",
+        "pk": "956d1ec2-33b2-4cd6-8832-1bbcd0d42661",
         "fields": {
-            "mbid": 159,
-            "link_type": "a3005666-a872-32c3-ad06-98af558e99b0",
+            "mbid": 11111,
+            "link_type": "2795ae85-2369-44ff-84e4-879045de032c",
             "begin_date_year": null,
             "begin_date_month": null,
             "begin_date_day": null,
@@ -12,11 +12,11 @@
             "end_date_month": null,
             "end_date_day": null,
             "attribute_count": 0,
-            "created": "2011-05-16 15:03:23.368437+00",
+            "created": "2025-01-14 15:23:43.853665+00:00",
             "ended": false,
-            "created_in_mneia": "2025-01-14T07:53:00.000Z",
-            "updated_in_mneia": "2025-01-14T07:53:00.000Z"
-        }
+            "created_in_mneia": "2025-01-14 15:23:43.853577+00:00",
+            "updated_in_mneia": "2025-01-14 15:23:43.853603+00:00"
+          }
     },
     {
         "model": "django_musicbrainz_connector.link",

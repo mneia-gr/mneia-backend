@@ -11,15 +11,15 @@ def test_gender_import_from_musicbrainz():
     """
     api_client = APIClient()
 
-    response = api_client.get("/genders/93452b5a-a947-30c8-934f-6a4056b151c2/")
-    assert response.status_code == 404  # assert that the Gender "Female" does not already exist before we import it
+    response = api_client.get("/genders/36d3d30a-839d-3eda-8cb3-29be4384e4a9/")
+    assert response.status_code == 404  # assert that the Gender "Male" does not already exist before we import it
 
-    response = api_client.post("/genders/import/", data={"mbid": 2})
+    response = api_client.post("/genders/import/", data={"mbid": 1})
     assert response.status_code == 200  # assert that import succeeded
 
-    response = api_client.get("/genders/93452b5a-a947-30c8-934f-6a4056b151c2/")
+    response = api_client.get("/genders/36d3d30a-839d-3eda-8cb3-29be4384e4a9/")
     assert response.status_code == 200  # the Gender exists after we import it
-    assert response.data["name"] == "Female"
+    assert response.data["name"] == "Male"
 
 
 @pytest.mark.django_db
