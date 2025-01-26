@@ -4,6 +4,7 @@ from mneia_backend.models.gender import Gender
 from mneia_backend.models.link import Link
 from mneia_backend.models.link_attribute import LinkAttribute
 from mneia_backend.models.link_attribute_type import LinkAttributeType
+from mneia_backend.models.link_text_attribute_type import LinkTextAttributeType
 from mneia_backend.models.link_type import LinkType
 from mneia_backend.models.links.magazine_issue_photograph import LinkMagazineIssuePhotograph
 from mneia_backend.models.links.person_photograph import LinkPersonPhotograph
@@ -21,6 +22,7 @@ __all__ = [
     "LinkAttributeType",
     "LinkMagazineIssuePhotograph",
     "LinkPersonPhotograph",
+    "LinkTextAttributeType",
     "LinkType",
     "Magazine",
     "MagazineIssue",
