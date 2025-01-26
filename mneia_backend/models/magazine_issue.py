@@ -30,6 +30,10 @@ class MagazineIssue(abstract.Model):
         return {
             "issue_number": self.issue_number,
             "date_published": format_date(self.date_published, format="long", locale="el_GR"),
+            "magazine": {
+                "id": str(self.magazine.id),
+                "name": self.magazine.name,
+            },
         }
 
     class Meta:
