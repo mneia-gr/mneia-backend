@@ -14,6 +14,11 @@ def test_link_type_str():
 
 @pytest.mark.django_db
 def test_link_type_import_from_musicbrainz():
+    """
+    The LinkType with MBID 257 and GID 44598c7e-01f9-438b-950a-183720a2cbbe that is used here is the "get the music"
+    LinkType between "recording" and "url", from MusicBrainz. The LinkType 255 is a child of 257, and used to test the
+    import of a LinkType that has a parent.
+    """
     api_client = APIClient()
 
     response = api_client.get("/link-types/44598c7e-01f9-438b-950a-183720a2cbbe/")

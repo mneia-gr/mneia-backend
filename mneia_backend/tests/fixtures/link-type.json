@@ -1,57 +1,71 @@
 [
     {
+        "__COMMENT__": [
+            "This LinkType is used to link a person to a photograph, in which the person is the subject of the",
+            "photograph. MBID is null because this is specific to Mneia, not imported from MusicBrainz."
+        ],
         "model": "mneia_backend.linktype",
         "pk": "2795ae85-2369-44ff-84e4-879045de032c",
-        "fields": {
-            "mbid": null,
-            "parent": null,
+        "fields":     {
             "child_order": 0,
-            "entity_type0": "person",
-            "entity_type1": "photograph",
-            "name": "subject",
+            "created_in_mneia": "2025-01-14 15:15:36.614128+00:00",
             "description": "This is used to link a person to a photograph, in which the person is the subject of the photograph.",
-            "link_phrase": "subject of",
-            "reverse_link_phrase": "subject",
-            "long_link_phrase": "is subject of",
-            "last_updated": "2025-01-14 15:15:36.614272+00:00",
-            "is_deprecated": false,
-            "has_dates": true,
             "entity0_cardinality": 0,
             "entity1_cardinality": 0,
-            "created_in_mneia": "2025-01-14 15:15:36.614128+00:00",
+            "entity_type0": "person",
+            "entity_type1": "photograph",
+            "has_dates": true,
+            "is_deprecated": false,
+            "last_updated": "2025-01-14 15:15:36.614272+00:00",
+            "link_phrase": "subject of",
+            "long_link_phrase": "is subject of",
+            "mbid": null,
+            "name": "subject",
+            "parent": null,
+            "reverse_link_phrase": "subject",
             "updated_in_mneia": "2025-01-14 15:15:36.614162+00:00"
         }
     },
     {
+        "__COMMENT__": [
+            "This LinkType is used to link a Magazine Issue to a Photograph, where the Photograph has been published",
+            "in that Magazine Issue.",
+            "NOTE!!! The MBID here is fake, used for testing only.",
+            "TODO!!! Removed this fake MBID and replace with a 'real' fixture when more models are added."
+        ],
         "model": "mneia_backend.linktype",
-        "pk": "11111111-2222-3333-4444-98af558e99b0",
+        "pk": "4225bcd7-1cb3-48fe-848a-e5e7457a8b2a",
         "fields": {
-            "mbid": 10000,
-            "parent": null,
             "child_order": 0,
-            "entity_type0": "foo",
-            "entity_type1": "bar",
-            "name": "foobar",
-            "description": "foobar",
-            "link_phrase": "foobar",
-            "reverse_link_phrase": "foobar",
-            "long_link_phrase": "foobar",
-            "last_updated": "2024-11-06 13:46:01.649493+00",
-            "is_deprecated": false,
-            "has_dates": true,
+            "created_in_mneia": "2025-01-26 06:56:13.580479+00:00",
+            "description": "This is used to link a Magazine Issue to a Photograph, where the Photograph has been published in that Magazine Issue.",
             "entity0_cardinality": 0,
-            "entity1_cardinality": 1,
-            "created_in_mneia": "2025-01-11T14:56:00.000Z",
-            "updated_in_mneia": "2025-01-11T14:56:00.000Z"
+            "entity1_cardinality": 0,
+            "entity_type0": "magazine_issue",
+            "entity_type1": "photograph",
+            "has_dates": true,
+            "is_deprecated": false,
+            "last_updated": "2025-01-26 06:56:13.580604+00:00",
+            "link_phrase": "has published",
+            "long_link_phrase": "has published",
+            "mbid": 10000,
+            "name": "publication",
+            "parent": null,
+            "reverse_link_phrase": "published in",
+            "updated_in_mneia": "2025-01-26 06:56:13.580521+00:00"
         }
     },
     {
+        "__COMMENT__": [
+            "NOTE!!! The GID here is fake, made to match one of the LinkType fixtures from Mneia.",
+            "TODO!!! Replace this with a 'real' fixture later."
+        ],
         "model": "django_musicbrainz_connector.linktype",
         "pk": 10000,
         "fields": {
             "parent": null,
             "child_order": 1,
-            "gid": "11111111-2222-3333-4444-98af558e99b0",
+            "gid": "4225bcd7-1cb3-48fe-848a-e5e7457a8b2a",
             "entity_type0": "foo",
             "entity_type1": "bar",
             "name": "foobar",
