@@ -17,7 +17,7 @@ class MagazineIssue(abstract.Model):
     * `date_published`, a date
     """
 
-    magazine = models.ForeignKey("Magazine", on_delete=models.PROTECT)
+    magazine = models.ForeignKey("Magazine", on_delete=models.PROTECT, related_name="issues")
     issue_number = models.CharField(max_length=15)
     order = models.PositiveSmallIntegerField()
     date_published = models.DateField()

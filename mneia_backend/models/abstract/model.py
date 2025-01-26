@@ -65,7 +65,7 @@ class Model(models.Model):
     @property
     def yaml_export_dir(self) -> Path:
         """The directory in which the data from an instance will be exported as YAML."""
-        slug = slugify(self._meta.verbose_name_plural).replace("-", "_")
+        slug = slugify(self._meta.verbose_name_plural)
         return Path.home() / "Mneia" / "mneia-gr.github.io" / "collections" / f"_{slug}"
 
     @property

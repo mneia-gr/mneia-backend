@@ -1,5 +1,6 @@
 from typing import Dict
 
+from babel.dates import format_date
 from django.contrib import admin
 from django.db import models
 
@@ -18,7 +19,16 @@ class Magazine(abstract.Model):
 
     @property
     def as_yaml(self) -> Dict:
-        return {"name": self.name}
+        _ = {"name": self.name, "issues": []}
+        for issue in self.issues.all():
+            _["issues"].append(
+                {
+                    "id": str(issue.id),
+                    "issue_number": issue.issue_number,
+                    "date_published": format_date(issue.date_published, format="long", locale="el_GR"),
+                }
+            )
+        return _
 
 
 @admin.register(Magazine)
