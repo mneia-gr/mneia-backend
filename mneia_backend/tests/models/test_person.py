@@ -41,3 +41,9 @@ def test_person_api_import():
     assert response.data["begin_area"] == uuid.UUID("803db0ca-b6ed-3bbc-aeb8-f89efd0a2168")
     assert response.data["end_area"] == uuid.UUID("803db0ca-b6ed-3bbc-aeb8-f89efd0a2168")
     assert response.data["gender"] == uuid.UUID("93452b5a-a947-30c8-934f-6a4056b151c2")
+
+
+@pytest.mark.django_db
+def test_person_as_yaml():
+    person = Person.objects.get(id="63eec1f5-f535-46a0-9fd3-6826a4f09e5c")  # from fixture
+    assert person.as_yaml == {"name": "Κυβέλη"}

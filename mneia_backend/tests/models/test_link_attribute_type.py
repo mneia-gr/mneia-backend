@@ -1,9 +1,10 @@
 import uuid
 
 import pytest
+from django.contrib.admin.sites import AdminSite
 from rest_framework.test import APIClient
 
-from mneia_backend.models.link_attribute_type import LinkAttributeType
+from mneia_backend.models.link_attribute_type import LinkAttributeType, LinkAttributeTypeAdmin
 
 
 @pytest.mark.django_db
@@ -39,3 +40,19 @@ def test_link_attribute_type_import_from_musicbrainz():
     assert response.status_code == 200  # assert that the link attribute type exists after the import
     assert response.data["root"] == uuid.UUID("d92884b7-ee0c-46d5-96f3-918196ba8c5b")  # same as FIRST import ID
     assert response.data["parent"] == uuid.UUID("d92884b7-ee0c-46d5-96f3-918196ba8c5b")  # same as FIRST import ID
+
+
+@pytest.mark.django_db
+def test_link_attribute_type_create_in_admin():
+    """
+    When creating a new "root" LinkAttributeType, the value of the `root` field should be the same as the ID of the
+    instance itself. We override the default `save_model()` method of the Admin site to add that. Docs:
+
+    https://docs.djangoproject.com/en/5.1/ref/contrib/admin/#django.contrib.admin.ModelAdmin.save_model
+    """
+    link_attribute_type = LinkAttributeType(id="b0409994-94d8-4414-998d-360dc255d2d3", name="Foo")
+    link_attribute_type_admin = LinkAttributeTypeAdmin(LinkAttributeType, AdminSite())
+    link_attribute_type_admin.save_model(obj=link_attribute_type, request=None, form=None, change=False)
+
+    saved_link_attribute_type = LinkAttributeType.objects.get(id="b0409994-94d8-4414-998d-360dc255d2d3")
+    assert saved_link_attribute_type.root_id == uuid.UUID("b0409994-94d8-4414-998d-360dc255d2d3")

@@ -13,7 +13,7 @@ dependencies = [
     "djangorestframework >= 3.15.0",
     "django-cors-headers >= 4.3.1",
     "requests >= 2.31.0",
-
+    "pyyaml >= 6.0.1",
 ]
 description = "A Django app for Mneia backend."
 readme = "README.md"

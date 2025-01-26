@@ -1,3 +1,5 @@
+from typing import Dict
+
 from django.contrib import admin
 from django.db import models
 from django_musicbrainz_connector.models import Artist as MusicBrainzArtist
@@ -71,6 +73,10 @@ class Person(abstract.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def as_yaml(self) -> Dict:
+        return {"name": self.name}
 
     class Meta:
         verbose_name_plural = "People"
