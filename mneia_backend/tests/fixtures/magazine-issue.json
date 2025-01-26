@@ -1,0 +1,14 @@
+[
+    {
+        "model": "mneia_backend.magazineissue",
+        "pk": "77f9eb61-c3c3-4215-8d86-2dd522a1e4cc",
+        "fields": {
+            "magazine": "54236466-7978-453d-85f8-a9c04c66e026",
+            "issue_number": 1,
+            "order": 1,
+            "date_published": "2025-01-01",
+            "created_in_mneia": "2025-01-26 03:16:27.946619+00:00",
+            "updated_in_mneia": "2025-01-26 03:16:27.946635+00:00"
+        }
+    }
+]
