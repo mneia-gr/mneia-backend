@@ -10,7 +10,7 @@ class LinkPersonPhotograph(abstract.LinkModel):
     photograph = models.ForeignKey("Photograph", on_delete=models.PROTECT)
 
     class Meta:
-        verbose_name_plural = "Links Person-Photograph"
+        verbose_name_plural = "Links Person - Photograph"
 
 
 class LinkPersonPhotographSerializer(rest_framework.serializers.ModelSerializer):

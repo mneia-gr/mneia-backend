@@ -9,6 +9,7 @@ from mneia_backend.models import abstract
 
 ENTITY_0_CHOICES = [
     ("person", "person"),
+    ("magazine_issue", "magazine_issue"),
 ]
 
 ENTITY_1_CHOICES = [

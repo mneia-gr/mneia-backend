@@ -10,7 +10,7 @@ class LinkMagazineIssuePhotograph(abstract.LinkModel):
     photograph = models.ForeignKey("Photograph", on_delete=models.PROTECT)
 
     class Meta:
-        verbose_name_plural = "Links MagazineIssue-Photograph"
+        verbose_name_plural = "Links Magazine Issue - Photograph"
 
 
 class LinkMagazineIssuePhotographSerializer(rest_framework.serializers.ModelSerializer):

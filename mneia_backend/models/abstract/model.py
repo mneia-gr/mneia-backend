@@ -18,9 +18,11 @@ class Model(models.Model):
         default=uuid.uuid4,
     )
     created_in_mneia = models.DateTimeField(
+        "Created in Mneia",
         auto_now_add=True,  # Automatically set the field to "now" when the object is first created.
     )
     updated_in_mneia = models.DateTimeField(
+        "Updated in Mneia",
         auto_now=True,  # Automatically set the field to "now" every time the object is saved.
     )
 
@@ -39,7 +41,11 @@ class Model(models.Model):
         """A representation of an instance as a dictionary, as it will be exported to JSON."""
         _as_json = {}
         for field in self._meta.fields:
-            if isinstance(field, models.UUIDField) or isinstance(field, models.DateTimeField):
+            if (
+                isinstance(field, models.UUIDField)
+                or isinstance(field, models.DateTimeField)
+                or isinstance(field, models.DateField)
+            ):
                 # convert UUIDs and dates to strings:
                 _as_json[field.name] = str(getattr(self, field.name))
             elif isinstance(field, models.ForeignKey):

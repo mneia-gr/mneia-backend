@@ -13,11 +13,15 @@ class LinkAttributeType(abstract.Model):
     parent = models.ForeignKey(
         "self",
         null=True,
+        blank=True,
         on_delete=models.PROTECT,
         related_name="child_link_attribute_types",
     )
+    # root is allowed to be left blank in web forms because it will be auto-populated with the value of self.id during
+    # saving from the admin interface:
     root = models.ForeignKey(
         "self",
+        blank=True,
         on_delete=models.PROTECT,
         related_name="leaf_child_attribute_types",
     )
@@ -86,3 +90,17 @@ class LinkAttributeTypeAdmin(admin.ModelAdmin):
         "id",
         "mbid",
     ]
+
+    def save_model(self, request, obj, form, change):
+        """
+        Root instances of LinkAttributeType have themselves as their own root. Here we are populating the `root` field
+        with the value of the instance ID, when creating a new instance through the Admin interface. Docs:
+
+        https://docs.djangoproject.com/en/5.1/ref/contrib/admin/#django.contrib.admin.ModelAdmin.save_model
+        """
+        if (
+            change is False  # we are creating a new LinkAttributeType through the Admin interface, not editing one
+            and obj.root_id is None  # the value of root is not populated yet
+        ):
+            obj.root_id = obj.id
+        return super().save_model(request, obj, form, change)

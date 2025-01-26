@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.db import models
 
 from mneia_backend.models import abstract
@@ -31,3 +32,9 @@ class LinkAttributeTextValue(abstract.Model):
                 name="link_and_attribute_type_are_unique_together",
             )
         ]
+
+
+@admin.register(LinkAttributeTextValue)
+class LinkAttributeTextValueAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in LinkAttributeTextValue._meta.fields]
+    readonly_fields = ["id"]

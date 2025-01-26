@@ -11,7 +11,7 @@ from mneia_backend.utils import get_musicbrainz_identifier_type
 
 class LinkAttribute(abstract.Model):
     link = models.ForeignKey("Link", on_delete=models.PROTECT)
-    attribute_type = models.ForeignKey("LinkAttributeType", on_delete=models.PROTECT)
+    attribute_type = models.ForeignKey("LinkAttributeType", verbose_name="Link Attribute", on_delete=models.PROTECT)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -87,3 +87,4 @@ class LinkAttributeViewSet(rest_framework.viewsets.ModelViewSet):
 @admin.register(LinkAttribute)
 class LinkAttributeAdmin(admin.ModelAdmin):
     list_display = [field.name for field in LinkAttribute._meta.fields]
+    readonly_fields = ["id"]
