@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.db import models
 
 from mneia_backend.models import abstract
@@ -12,3 +13,9 @@ class Magazine(abstract.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+@admin.register(Magazine)
+class PersonAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Magazine._meta.fields]
+    readonly_fields = ["id", "created_in_mneia", "updated_in_mneia"]
