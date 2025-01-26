@@ -49,6 +49,10 @@ def test_link_attribute_type_create_in_admin():
     instance itself. We override the default `save_model()` method of the Admin site to add that. Docs:
 
     https://docs.djangoproject.com/en/5.1/ref/contrib/admin/#django.contrib.admin.ModelAdmin.save_model
+
+    Some ideas for this unit test came from:
+
+    https://stackoverflow.com/questions/6498488/testing-admin-modeladmin-in-django
     """
     link_attribute_type = LinkAttributeType(id="b0409994-94d8-4414-998d-360dc255d2d3", name="Foo")
     link_attribute_type_admin = LinkAttributeTypeAdmin(LinkAttributeType, AdminSite())

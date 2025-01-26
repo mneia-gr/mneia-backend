@@ -1,3 +1,5 @@
+from typing import Dict
+
 from django.contrib import admin
 from django.db import models
 
@@ -13,6 +15,10 @@ class Magazine(abstract.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def as_yaml(self) -> Dict:
+        return {"name": self.name}
 
 
 @admin.register(Magazine)
