@@ -5,7 +5,7 @@
             "'page', used to store the page in which something was published."
         ],
         "model": "mneia_backend.linkattribute",
-        "pk": "e9ea0509-9095-476a-a407-dac4683d28cf",
+        "pk": "a39a358d-7da2-4d10-a27d-b8a42178c57a",
         "fields": {
             "link": "956d1ec2-33b2-4cd6-8832-1bbcd0d42661",
             "attribute_type": "2745d711-1ca1-4647-9971-5e208682fdcb",
