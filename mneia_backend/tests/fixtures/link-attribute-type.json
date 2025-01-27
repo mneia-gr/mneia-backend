@@ -1,25 +1,25 @@
 [
     {
-        "## COMMENTS ##": [
-            "This LinkAttributeType is specific to Mneia. It does not exist in the MusicBrainz database, so it does",
-            "not have an MBID."
+        "__COMMENTS__": [
+            "This LinkAttributeType with name 'page' is used to store the page of a book or periodical issue in which",
+            "something was published. MBID is null because this is specific to Mneia, it does not exist in MusicBrainz."
         ],
         "model": "mneia_backend.linkattributetype",
-        "pk": "fb570822-66e6-4558-aed8-35f76938b12b",
+        "pk": "2745d711-1ca1-4647-9971-5e208682fdcb",
         "fields": {
-            "mbid": null,
-            "parent": null,
-            "root": "fb570822-66e6-4558-aed8-35f76938b12b",
             "child_order": 0,
+            "created_in_mneia": "2025-01-26 07:24:19.588541+00:00",
+            "description": "The page of a Book or Magazine Issue in which something was published.",
+            "last_updated": "2025-01-26 07:24:19.588588+00:00",
+            "mbid": null,
             "name": "page",
-            "description": "The page of a book or periodical issue in which something was published",
-            "last_updated": "2024-11-06 13:46:01.649493+00",
-            "created_in_mneia": "2025-01-22T11:37:00.000Z",
-            "updated_in_mneia": "2025-01-22T11:37:00.000Z"
+            "parent": null,
+            "root": "2745d711-1ca1-4647-9971-5e208682fdcb",
+            "updated_in_mneia": "2025-01-26 07:24:19.588557+00:00"
         }
     },
     {
-        "## COMMENTS ##": [
+        "__COMMENTS__": [
             "This LinkAttributeType exists in BOTH Mneia and the MusicBrainz database. It is used to unit-test",
             "the import functionality of the LinkAttribute model."
         ],
@@ -28,7 +28,7 @@
         "fields": {
             "mbid": 22222,
             "parent": null,
-            "root": "fb570822-66e6-4558-aed8-35f76938b12b",
+            "root": "2745d711-1ca1-4647-9971-5e208682fdcb",
             "child_order": 0,
             "name": "something",
             "description": "something",
@@ -38,7 +38,7 @@
         }
     },
     {
-        "## COMMENTS ##": [
+        "__COMMENTS__": [
             "This LinkAttributeType exists in the MusicBrainz database but not in Mneia, and it is used to test the",
             "import functionality. Notice that it has no parent."
         ],
@@ -55,7 +55,7 @@
         }
     },
     {
-        "## COMMENTS ##": [
+        "__COMMENTS__": [
             "This LinkAttributeType exists in the MusicBrainz database but not in Mneia, and it is used to test the",
             "import functionality when the instance has a parent."
         ],
@@ -72,7 +72,7 @@
         }
     },
     {
-        "## COMMENTS ##": [
+        "__COMMENTS__": [
             "This LinkAttributeType exists in BOTH Mneia and the MusicBrainz database. It is used to unit-test",
             "the import functionality of the LinkAttribute model."
         ],

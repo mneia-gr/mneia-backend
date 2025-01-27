@@ -38,7 +38,7 @@ class LinkAttributeViewSet(rest_framework.viewsets.ModelViewSet):
         Either of these calls should work:
 
             GET /link-attributes/956d1ec2-33b2-4cd6-8832-1bbcd0d42661/
-            GET /link-attributes/956d1ec2-33b2-4cd6-8832-1bbcd0d42661+fb570822-66e6-4558-aed8-35f76938b12b/
+            GET /link-attributes/956d1ec2-33b2-4cd6-8832-1bbcd0d42661+2745d711-1ca1-4647-9971-5e208682fdcb/
         """
         pk = self.kwargs["pk"]
         pk_type = get_musicbrainz_identifier_type(pk)  # either "name" or "gid"

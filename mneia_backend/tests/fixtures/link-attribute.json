@@ -1,10 +1,14 @@
 [
     {
+        "__COMMENTS__": [
+            "This LinkAttribute connects links of types like 'publication' with the LinkAttributeType with name",
+            "'page', used to store the page in which something was published."
+        ],
         "model": "mneia_backend.linkattribute",
         "pk": "e9ea0509-9095-476a-a407-dac4683d28cf",
         "fields": {
             "link": "956d1ec2-33b2-4cd6-8832-1bbcd0d42661",
-            "attribute_type": "fb570822-66e6-4558-aed8-35f76938b12b",
+            "attribute_type": "2745d711-1ca1-4647-9971-5e208682fdcb",
             "created": "2025-01-14 15:15:36.614272+00:00",
             "created_in_mneia": "2025-01-14 14:05:27.946619+00:00",
             "updated_in_mneia": "2025-01-14 14:05:27.946635+00:00"

@@ -13,7 +13,7 @@ def test_link_attribute_api_get_by_id():
 def test_link_attribute_api_get_by_link_id_and_attribute_type_id():
     api_client = APIClient()
     response = api_client.get(
-        "/link-attributes/956d1ec2-33b2-4cd6-8832-1bbcd0d42661+fb570822-66e6-4558-aed8-35f76938b12b/"
+        "/link-attributes/956d1ec2-33b2-4cd6-8832-1bbcd0d42661+2745d711-1ca1-4647-9971-5e208682fdcb/"
     )
     assert response.status_code == 200
     assert response.data["id"] == "e9ea0509-9095-476a-a407-dac4683d28cf"

@@ -9,7 +9,7 @@ from mneia_backend.models.link_attribute_type import LinkAttributeType, LinkAttr
 
 @pytest.mark.django_db
 def test_link_attribute_type_str():
-    link_attribute_type = LinkAttributeType.objects.get(id="fb570822-66e6-4558-aed8-35f76938b12b")  # from fixture
+    link_attribute_type = LinkAttributeType.objects.get(id="2745d711-1ca1-4647-9971-5e208682fdcb")  # from fixture
     assert str(link_attribute_type) == "page"
 
 

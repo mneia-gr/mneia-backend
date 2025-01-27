@@ -1,9 +1,12 @@
 [
     {
+        "__COMMENTS__": [
+            "This LinkTextAttributeType is used to link the text value of a 'page' with the LinkAttributeType 'page'."
+        ],
         "model": "mneia_backend.linktextattributetype",
         "pk": "6908c0e9-b9f4-4649-8999-8d83d4313d86",
         "fields": {
-            "attribute_type": "fb570822-66e6-4558-aed8-35f76938b12b",
+            "attribute_type": "2745d711-1ca1-4647-9971-5e208682fdcb",
             "created_in_mneia": "2025-01-26 05:25:27.946619+00:00",
             "updated_in_mneia": "2025-01-26 05:25:27.946635+00:00"
         }
