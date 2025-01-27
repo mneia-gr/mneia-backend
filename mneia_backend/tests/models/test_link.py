@@ -1,6 +1,8 @@
 import pytest
 from rest_framework.test import APIClient
 
+from mneia_backend.models.link import Link
+
 
 @pytest.mark.django_db
 def test_link_api_get_by_uuid():
@@ -37,3 +39,16 @@ def test_link_api_import_from_musicbrainz():
 
     response = api_client.get("/links/27098/")
     assert response.status_code == 200  # assert that the Link exists after the import
+
+
+@pytest.mark.django_db
+def test_link_calculated_fields():
+    link = Link.objects.get(id="956d1ec2-33b2-4cd6-8832-1bbcd0d42661")
+    assert link.calculated_attribute_count == 0
+    assert link.explanation == "Link of type 'subject' between 'person' and 'photograph' with no attributes"
+
+    link = Link.objects.get(id="a39b93d2-18d8-41b7-b87d-d467f110bf05")
+    assert link.calculated_attribute_count == 1
+    assert (
+        link.explanation == "Link of type 'publication' between 'magazine_issue' and 'photograph' with attribute 'page'"
+    )

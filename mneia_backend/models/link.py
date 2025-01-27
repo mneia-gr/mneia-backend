@@ -21,6 +21,33 @@ class Link(abstract.Model):
     created = models.DateTimeField("Created", auto_now_add=True)
     ended = models.BooleanField("Ended?", default=False)
 
+    @property
+    def calculated_attribute_count(self) -> int:
+        """
+        The Link model has an `attribute_count` field. This calculated attribute count is used to run an integration
+        test, to assert the consistency between the two.
+        """
+        return self.link_attributes.count()
+
+    @property
+    def explanation(self) -> str:
+        """
+        This helpful string is displayed in the Admin interface, it helps understand the purpose of a Link.
+        """
+        _ = [
+            f"Link of type '{self.link_type.name}'",
+            f"between '{self.link_type.entity_type0}'",
+            f"and '{self.link_type.entity_type1}'",
+        ]
+        if self.link_attributes.count() == 0:
+            _.append("with no attributes")
+        elif self.link_attributes.count() == 1:
+            _.append(f"with attribute '{self.link_attributes.first().attribute_type.name}'")
+        else:
+            link_attribute_names = [link_attribute.attribute_type.name for link_attribute in self.link_attributes.all()]
+            _.append(f"with attributes: {", ".join(link_attribute_names)}")
+        return " ".join(_)
+
     class Meta:
         verbose_name_plural = "Links"
 
@@ -93,6 +120,5 @@ class LinkViewSet(rest_framework.viewsets.ModelViewSet):
 
 @admin.register(Link)
 class LinkAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Link._meta.fields]
-
-    readonly_fields = ["id", "mbid"]
+    list_display = ["explanation", "link_type", "attribute_count", "calculated_attribute_count"]
+    readonly_fields = ["id", "mbid", "explanation", "calculated_attribute_count"]

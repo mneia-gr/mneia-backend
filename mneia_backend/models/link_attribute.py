@@ -10,7 +10,7 @@ from mneia_backend.utils import get_musicbrainz_identifier_type
 
 
 class LinkAttribute(abstract.Model):
-    link = models.ForeignKey("Link", on_delete=models.PROTECT)
+    link = models.ForeignKey("Link", on_delete=models.PROTECT, related_name="link_attributes")
     attribute_type = models.ForeignKey("LinkAttributeType", verbose_name="Link Attribute", on_delete=models.PROTECT)
     created = models.DateTimeField(auto_now_add=True)
 

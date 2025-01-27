@@ -7,7 +7,7 @@
         "model": "mneia_backend.linkattribute",
         "pk": "a39a358d-7da2-4d10-a27d-b8a42178c57a",
         "fields": {
-            "link": "956d1ec2-33b2-4cd6-8832-1bbcd0d42661",
+            "link": "a39b93d2-18d8-41b7-b87d-d467f110bf05",
             "attribute_type": "2745d711-1ca1-4647-9971-5e208682fdcb",
             "created": "2025-01-14 15:15:36.614272+00:00",
             "created_in_mneia": "2025-01-14 14:05:27.946619+00:00",
