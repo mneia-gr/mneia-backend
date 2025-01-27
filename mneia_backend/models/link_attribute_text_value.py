@@ -20,9 +20,19 @@ class LinkAttributeTextValue(abstract.Model):
         );
     """
 
-    link = models.ForeignKey("Link", on_delete=models.PROTECT)
+    link = models.ForeignKey("Link", on_delete=models.PROTECT, related_name="link_attribute_text_values")
     attribute_type = models.ForeignKey("LinkTextAttributeType", on_delete=models.PROTECT)
     text_value = models.TextField()
+
+    @property
+    def link_explanation(self) -> str:
+        """This is used in the Admin interface to help keep track of these values."""
+        return self.link.explanation
+
+    @property
+    def attribute_type_name(self) -> str:
+        """This is used in the Admin interface to help keep track of these values."""
+        return self.attribute_type.attribute_type.name
 
     class Meta:
         verbose_name_plural = "Link Attribute Text Values"
@@ -36,5 +46,5 @@ class LinkAttributeTextValue(abstract.Model):
 
 @admin.register(LinkAttributeTextValue)
 class LinkAttributeTextValueAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in LinkAttributeTextValue._meta.fields]
-    readonly_fields = ["id"]
+    list_display = ["link_explanation", "attribute_type_name", "text_value"]
+    readonly_fields = ["id", "link_explanation", "attribute_type_name"]
