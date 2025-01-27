@@ -18,11 +18,11 @@
             "is_deprecated": false,
             "last_updated": "2025-01-14 15:15:36.614272+00:00",
             "link_phrase": "subject of",
-            "long_link_phrase": "is subject of",
+            "long_link_phrase": "is the subject of",
             "mbid": null,
             "name": "subject",
             "parent": null,
-            "reverse_link_phrase": "subject",
+            "reverse_link_phrase": "has subject",
             "updated_in_mneia": "2025-01-14 15:15:36.614162+00:00"
         }
     },

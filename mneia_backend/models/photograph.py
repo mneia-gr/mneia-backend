@@ -25,6 +25,7 @@ class Photograph(abstract.Model):
                     for link_to_magazine_issue in self.links_to_magazine_issues.all()
                 ]
             },
+            "links": {"people": [link_to_person.as_link_to_person for link_to_person in self.links_to_people.all()]},
         }
 
     class Meta:

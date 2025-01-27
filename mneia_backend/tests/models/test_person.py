@@ -46,4 +46,17 @@ def test_person_api_import():
 @pytest.mark.django_db
 def test_person_as_yaml():
     person = Person.objects.get(id="63eec1f5-f535-46a0-9fd3-6826a4f09e5c")  # from fixture
-    assert person.as_yaml == {"name": "Κυβέλη"}
+    assert person.as_yaml == {
+        "name": "Κυβέλη",
+        "links": {
+            "photographs": [
+                {
+                    "link_phrase": "is the subject of",
+                    "photograph": {
+                        "id": "b07ad067-fb07-4ced-818e-05e371264689",
+                        "name": "Ελληνικές δόξες: Η κ. ΚΥΒΕΛΗ ΘΕΟΔΩΡΙΔΟΥ εις την «Τρίμορφη Γυναίκα»",
+                    },
+                }
+            ]
+        },
+    }

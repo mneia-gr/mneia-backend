@@ -41,4 +41,15 @@ def test_photograph_as_yaml():
                 }
             ]
         },
+        "links": {
+            "people": [
+                {
+                    "link_phrase": "has subject",
+                    "person": {
+                        "id": "63eec1f5-f535-46a0-9fd3-6826a4f09e5c",
+                        "name": "Κυβέλη",
+                    },
+                },
+            ],
+        },
     }

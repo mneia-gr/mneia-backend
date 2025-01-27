@@ -76,7 +76,14 @@ class Person(abstract.Model):
 
     @property
     def as_yaml(self) -> Dict:
-        return {"name": self.name}
+        return {
+            "name": self.name,
+            "links": {
+                "photographs": [
+                    link_to_photograph.as_link_to_photograph for link_to_photograph in self.links_to_photographs.all()
+                ]
+            },
+        }
 
     class Meta:
         verbose_name_plural = "People"

@@ -139,4 +139,14 @@ def test_person_yaml_export(mock_yaml_export_dir, mock_yaml_export_file):
     person.export_yaml()
 
     mock_yaml_export_dir.mkdir.assert_called_once_with(parents=True, exist_ok=True)
-    mock_yaml_export_file.write_text.assert_called_once_with("---\nname: Κυβέλη\n---\n")
+    mock_yaml_export_file.write_text.assert_called_once_with(
+        "---\n"
+        "links:\n"
+        "  photographs:\n"
+        "  - link_phrase: is the subject of\n"
+        "    photograph:\n"
+        "      id: b07ad067-fb07-4ced-818e-05e371264689\n"
+        "      name: 'Ελληνικές δόξες: Η κ. ΚΥΒΕΛΗ ΘΕΟΔΩΡΙΔΟΥ εις την «Τρίμορφη Γυναίκα»'\n"
+        "name: Κυβέλη\n"
+        "---\n"
+    )
