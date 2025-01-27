@@ -4,7 +4,7 @@
             "This LinkTextAttributeType is used to link the text value of a 'page' with the LinkAttributeType 'page'."
         ],
         "model": "mneia_backend.linktextattributetype",
-        "pk": "6908c0e9-b9f4-4649-8999-8d83d4313d86",
+        "pk": "9bff5ee1-a035-42a8-8b2f-da0b7d7213d3",
         "fields": {
             "attribute_type": "2745d711-1ca1-4647-9971-5e208682fdcb",
             "created_in_mneia": "2025-01-26 05:25:27.946619+00:00",
