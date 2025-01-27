@@ -43,6 +43,7 @@ def _load_test_fixtures(django_db_blocker):
         "magazine-issue",  # depends on magazine
         "link-magazine-issue-photograph",  # depends on link, magazine-issue, photograph
         "link-text-attribute-type",  # depends on link-text-attribute
+        "link-attribute-text-value",  # depends on link and link-text-attribute-type
     ]
     with django_db_blocker.unblock():
         for fixture in fixtures:

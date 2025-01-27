@@ -1,0 +1,13 @@
+[
+    {
+        "model": "mneia_backend.linkattributetextvalue",
+        "pk": "a6dfb38e-9fca-4b53-b8a8-488043525feb",
+        "fields": {
+            "attribute_type": "9bff5ee1-a035-42a8-8b2f-da0b7d7213d3",
+            "created_in_mneia": "2025-01-26 07:36:12.192643+00:00",
+            "link": "a39b93d2-18d8-41b7-b87d-d467f110bf05",
+            "text_value": "1",
+            "updated_in_mneia": "2025-01-26 13:08:45.190938+00:00"
+        }
+    }
+]
