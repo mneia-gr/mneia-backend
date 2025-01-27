@@ -14,6 +14,7 @@ def test_link_magazine_issue_photograph_as_reference():
         "magazine_issue": {
             "id": "49323bf2-767c-4812-b07a-f71a596b15e5",
             "issue_number": "1ον Τεύχος",
+            "date_published": "28 Φεβρουαρίου 1926",
         },
         "photograph": {
             "id": "b07ad067-fb07-4ced-818e-05e371264689",

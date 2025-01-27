@@ -1,6 +1,7 @@
 from typing import Dict
 
 import rest_framework
+from babel.dates import format_date
 from django.contrib import admin
 from django.db import models
 
@@ -21,6 +22,7 @@ class LinkMagazineIssuePhotograph(abstract.LinkModel):
             "magazine_issue": {
                 "id": str(self.magazine_issue.id),
                 "issue_number": self.magazine_issue.issue_number,
+                "date_published": format_date(self.magazine_issue.date_published, format="long", locale="el_GR"),
             },
             "photograph": {
                 "id": str(self.photograph.id),

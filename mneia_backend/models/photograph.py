@@ -1,3 +1,5 @@
+from typing import Dict
+
 from django.contrib import admin
 from django.db import models
 from rest_framework import serializers, viewsets
@@ -11,6 +13,19 @@ class Photograph(abstract.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def as_yaml(self) -> Dict:
+        return {
+            "name": self.name,
+            "description": self.description,
+            "references": {
+                "magazine_issues": [
+                    link_to_magazine_issue.as_reference
+                    for link_to_magazine_issue in self.links_to_magazine_issues.all()
+                ]
+            },
+        }
 
     class Meta:
         verbose_name_plural = "Photographs"
