@@ -34,6 +34,11 @@ class MagazineIssue(abstract.Model):
                 "id": str(self.magazine.id),
                 "name": self.magazine.name,
             },
+            "references": {
+                "photographs": [
+                    link_to_photograph.as_reference for link_to_photograph in self.links_to_photographs.all()
+                ]
+            },
         }
 
     class Meta:

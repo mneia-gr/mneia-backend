@@ -21,7 +21,11 @@ class LinkAttributeTextValue(abstract.Model):
     """
 
     link = models.ForeignKey("Link", on_delete=models.PROTECT, related_name="link_attribute_text_values")
-    attribute_type = models.ForeignKey("LinkTextAttributeType", on_delete=models.PROTECT)
+    attribute_type = models.ForeignKey(
+        "LinkTextAttributeType",
+        on_delete=models.PROTECT,
+        related_name="link_attribute_text_values",
+    )
     text_value = models.TextField()
 
     @property

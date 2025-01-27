@@ -5,7 +5,12 @@ from mneia_backend.models import abstract
 
 
 class LinkTextAttributeType(abstract.Model):
-    attribute_type = models.ForeignKey("LinkAttributeType", verbose_name="Attribute Type", on_delete=models.PROTECT)
+    attribute_type = models.ForeignKey(
+        "LinkAttributeType",
+        verbose_name="Attribute Type",
+        on_delete=models.PROTECT,
+        related_name="link_text_attribute_types",
+    )
 
     class Meta:
         verbose_name_plural = "Link Text Attribute Types"

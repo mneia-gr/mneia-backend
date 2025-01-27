@@ -1,3 +1,5 @@
+from typing import Dict
+
 import rest_framework
 from django.contrib import admin
 from django.db import models
@@ -6,8 +8,38 @@ from mneia_backend.models import abstract
 
 
 class LinkMagazineIssuePhotograph(abstract.LinkModel):
-    magazine_issue = models.ForeignKey("MagazineIssue", on_delete=models.PROTECT)
-    photograph = models.ForeignKey("Photograph", on_delete=models.PROTECT)
+    magazine_issue = models.ForeignKey("MagazineIssue", on_delete=models.PROTECT, related_name="links_to_photographs")
+    photograph = models.ForeignKey("Photograph", on_delete=models.PROTECT, related_name="links_to_magazine_issues")
+
+    @property
+    def as_reference(self) -> Dict:
+        _ = {
+            "magazine": {
+                "id": str(self.magazine_issue.magazine.id),
+                "name": self.magazine_issue.magazine.name,
+            },
+            "magazine_issue": {
+                "id": str(self.magazine_issue.id),
+                "issue_number": self.magazine_issue.issue_number,
+            },
+            "photograph": {
+                "id": str(self.photograph.id),
+                "name": self.photograph.name,
+            },
+            "attributes": {},
+        }
+
+        # For each link attribute, add a key-value pair to the representation of this link as a reference.
+        # TODO: Not all link attribute types have text values, need to figure this out later.
+        link = self.link
+        link_attributes = link.link_attributes.all()
+        for link_attribute in link_attributes:
+            link_attribute_type = link_attribute.attribute_type
+            link_text_attribute_type = link_attribute_type.link_text_attribute_types.first()
+            link_attribute_text_value = link_text_attribute_type.link_attribute_text_values.filter(link=link)[0]
+            _["attributes"][link_attribute_type.name] = link_attribute_text_value.text_value
+
+        return _
 
     class Meta:
         verbose_name_plural = "Links Magazine Issue - Photograph"
