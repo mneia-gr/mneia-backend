@@ -31,7 +31,7 @@ def test_link_attribute_api_import_from_musicbrainz():
     api_client = APIClient()
 
     response = api_client.get(
-        "/link-attributes/956d1ec2-33b2-4cd6-8832-1bbcd0d42661+9f63c4ba-b76f-40d5-9e99-2fb08bd4c286/"
+        "/link-attributes/11111111-2222-4cd6-8832-1bbcd0d42661+9f63c4ba-b76f-40d5-9e99-2fb08bd4c286/"
     )
     assert response.status_code == 404  # assert that the link attribute does not exist before importing
 
@@ -39,6 +39,6 @@ def test_link_attribute_api_import_from_musicbrainz():
     assert response.status_code == 200  # assert that the import went well
 
     response = api_client.get(
-        "/link-attributes/956d1ec2-33b2-4cd6-8832-1bbcd0d42661+9f63c4ba-b76f-40d5-9e99-2fb08bd4c286/"
+        "/link-attributes/11111111-2222-4cd6-8832-1bbcd0d42661+9f63c4ba-b76f-40d5-9e99-2fb08bd4c286/"
     )
     assert response.status_code == 200  # assert that the link attribute exists after importing

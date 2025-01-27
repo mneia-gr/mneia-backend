@@ -1,7 +1,58 @@
 [
     {
+        "__COMMENTS__": [
+            "This Link is of type 'subject', between a 'Person' and a 'Photograph', where the Person is the subject of",
+            "the Photograph. It has no link attributes. MBID is null because this is specific to Mneia."
+        ],
         "model": "mneia_backend.link",
         "pk": "956d1ec2-33b2-4cd6-8832-1bbcd0d42661",
+        "fields": {
+            "attribute_count": 0,
+            "begin_date_day": null,
+            "begin_date_month": null,
+            "begin_date_year": null,
+            "created": "2025-01-14 15:23:43.853665+00:00",
+            "created_in_mneia": "2025-01-14 15:23:43.853577+00:00",
+            "end_date_day": null,
+            "end_date_month": null,
+            "end_date_year": null,
+            "ended": false,
+            "link_type": "2795ae85-2369-44ff-84e4-879045de032c",
+            "mbid": null,
+            "updated_in_mneia": "2025-01-14 15:23:43.853603+00:00"
+        }
+    },
+    {
+        "__COMMENTS__": [
+            "This Link is of type 'publication' between a 'MagazineIssue' and a 'Photograph', where the Photograph was",
+            "published in that MagazineIssue. It has one attribute with name 'page'. MBID is null because this is",
+            "specific to Mneia."
+        ],
+        "model": "mneia_backend.link",
+        "pk": "a39b93d2-18d8-41b7-b87d-d467f110bf05",
+        "fields": {
+            "attribute_count": 1,
+            "begin_date_day": null,
+            "begin_date_month": null,
+            "begin_date_year": null,
+            "created": "2025-01-26 07:00:43.293711+00:00",
+            "created_in_mneia": "2025-01-26 07:00:43.293630+00:00",
+            "end_date_day": null,
+            "end_date_month": null,
+            "end_date_year": null,
+            "ended": false,
+            "link_type": "4225bcd7-1cb3-48fe-848a-e5e7457a8b2a",
+            "mbid": null,
+            "updated_in_mneia": "2025-01-26 12:23:41.465810+00:00"
+        }
+    },
+    {
+        "__COMMENTS__": [
+            "This FAKE Link is here to test API GET by MBID.",
+            "TODO!!! Maybe replace this with a 'real' Link once something is imported from MusicBrainz."
+        ],
+        "model": "mneia_backend.link",
+        "pk": "11111111-2222-4cd6-8832-1bbcd0d42661",
         "fields": {
             "mbid": 11111,
             "link_type": "2795ae85-2369-44ff-84e4-879045de032c",
