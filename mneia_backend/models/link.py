@@ -2,10 +2,10 @@ import rest_framework
 from django.contrib import admin
 from django.db import models
 from django_musicbrainz_connector.models.link import Link as MusicBrainzLink
+from django_musicbrainz_connector.utils import get_musicbrainz_identifier_type
 
 from mneia_backend.models import abstract
 from mneia_backend.models.link_type import LinkType
-from mneia_backend.utils import get_musicbrainz_identifier_type
 
 
 class Link(abstract.Model):
