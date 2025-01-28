@@ -1,7 +1,7 @@
 [
     {
         "__COMMENTS__": [
-            "This WorkType is specific to Mneia, not imported from MusicBrainz, therefore it has empty MBID."
+            "This WorkType named 'Poem' exists in both Mneia and MusicBrainz."
         ],
         "model": "mneia_backend.worktype",
         "pk": "66b8026e-7ce8-36f8-a8d5-7c346c7b9a88",
@@ -13,6 +13,20 @@
             "description": "A poem is a literary piece, generally short and in verse, where words are usually chosen for their sound and for the images and ideas they suggest.",
             "created_in_mneia": "2025-01-28 17:41:06.071039+00:00",
             "updated_in_mneia": "2025-01-28 17:41:06.071066+00:00"
+        }
+    },
+    {
+        "__COMMENTS__": [
+            "This WorkType named 'Poem' exists in both Mneia and MusicBrainz."
+        ],
+        "model": "django_musicbrainz_connector.worktype",
+        "pk": 21,
+        "fields": {
+            "name": "Poem",
+            "parent": null,
+            "child_order": 1,
+            "description": "A poem is a literary piece, generally short and in verse, where words are usually chosen for their sound and for the images and ideas they suggest.",
+            "gid": "66b8026e-7ce8-36f8-a8d5-7c346c7b9a88"
         }
     },
     {

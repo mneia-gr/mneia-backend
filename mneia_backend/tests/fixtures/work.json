@@ -1,0 +1,33 @@
+[
+    {
+        "__COMMENTS__": [
+            "FAKE!"
+        ],
+        "model": "mneia_backend.work",
+        "pk": "11111111-4444-4f16-90f1-290c99f233f3",
+        "fields": {
+            "mbid": null,
+            "name": "Foo",
+            "type": "66b8026e-7ce8-36f8-a8d5-7c346c7b9a88",
+            "comment": "",
+            "edits_pending": 0,
+            "last_updated": "2025-01-28 17:41:06.071066+00:00",
+            "created_in_mneia": "2025-01-28 18:17:06.071039+00:00",
+            "updated_in_mneia": "2025-01-28 18:17:06.071066+00:00"
+        }
+    },
+    {
+        "__COMMENTS__": [
+            "This is a real work in MusicBrainz, but here we're tweaking the type so that we can unit test the import."
+        ],
+        "model": "django_musicbrainz_connector.work",
+        "pk": 12431814,
+        "fields": {
+            "gid": "864c45d9-8450-4b6f-9570-744980fba21e",
+            "name": "Φραγκοσυριανή",
+            "type": 21,
+            "edits_pending": 0,
+            "last_updated": "2020-04-30 16:00:28.854191+00"
+        }
+    }
+]
