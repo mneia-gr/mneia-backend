@@ -46,6 +46,7 @@ def _load_test_fixtures(django_db_blocker):
         "link-attribute-text-value",  # depends on link and link-text-attribute-type
         "work-type",
         "work",  # depends on work-type
+        "link-person-work",  # depends on link, person, and work
     ]
     with django_db_blocker.unblock():
         for fixture in fixtures:
