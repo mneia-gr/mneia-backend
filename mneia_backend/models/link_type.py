@@ -14,6 +14,7 @@ ENTITY_0_CHOICES = [
 
 ENTITY_1_CHOICES = [
     ("photograph", "photograph"),
+    ("work", "work"),
 ]
 
 
