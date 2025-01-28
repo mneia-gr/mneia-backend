@@ -9,6 +9,7 @@ from mneia_backend.models.link_attribute import LinkAttributeViewSet
 from mneia_backend.models.link_attribute_type import LinkAttributeTypeViewSet
 from mneia_backend.models.link_type import LinkTypeViewSet
 from mneia_backend.models.person import PersonViewSet
+from mneia_backend.models.work_type import WorkTypeViewSet
 
 mneia_router = routers.DefaultRouter()
 mneia_router.register(r"areas", AreaViewSet)
@@ -19,6 +20,7 @@ mneia_router.register(r"link-attributes", LinkAttributeViewSet)
 mneia_router.register(r"link-attribute-types", LinkAttributeTypeViewSet)
 mneia_router.register(r"links", LinkViewSet)
 mneia_router.register(r"people", PersonViewSet)
+mneia_router.register(r"work-types", WorkTypeViewSet)
 
 urlpatterns = [
     path("", include(mneia_router.urls)),

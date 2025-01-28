@@ -13,6 +13,7 @@ from mneia_backend.models.magazine import Magazine
 from mneia_backend.models.magazine_issue import MagazineIssue
 from mneia_backend.models.person import Person
 from mneia_backend.models.photograph import Photograph
+from mneia_backend.models.work_type import WorkType
 
 __all__ = [
     "Area",
@@ -30,4 +31,5 @@ __all__ = [
     "MagazineIssue",
     "Person",
     "Photograph",
+    "WorkType",
 ]

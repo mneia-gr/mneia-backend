@@ -1,0 +1,48 @@
+[
+    {
+        "__COMMENTS__": [
+            "This WorkType is specific to Mneia, not imported from MusicBrainz, therefore it has empty MBID."
+        ],
+        "model": "mneia_backend.worktype",
+        "pk": "66b8026e-7ce8-36f8-a8d5-7c346c7b9a88",
+        "fields": {
+            "mbid": 21,
+            "name": "Poem",
+            "parent": null,
+            "child_order": 2,
+            "description": "A poem is a literary piece, generally short and in verse, where words are usually chosen for their sound and for the images and ideas they suggest.",
+            "created_in_mneia": "2025-01-28 17:41:06.071039+00:00",
+            "updated_in_mneia": "2025-01-28 17:41:06.071066+00:00"
+        }
+    },
+    {
+        "__COMMENTS__": [
+            "This WorkType exists only in MusicBrainz, not in Mneia, and is used to unit-test importing a WorkType",
+            "from MusicBrainz."
+        ],
+        "model": "django_musicbrainz_connector.worktype",
+        "pk": 17,
+        "fields": {
+            "name": "Song",
+            "parent": null,
+            "child_order": 1,
+            "description": "A song is in its origin (and still in most cases) a composition for voice, with or without instruments, performed by singing. This is the most common form by far in folk and popular music, but also fairly common in a classical context (\"art songs\").",
+            "gid": "f061270a-2fd6-32f1-a641-f0f8676d14e6"
+        }
+    },
+    {
+        "__COMMENTS__": [
+            "This FAKE MusicBrainz WorkType is used to unit-test importing a WorkType that has a parent. None of the",
+            "WorkTypes in MusicBrainz have a parent, so we're using a fake one."
+        ],
+        "model": "django_musicbrainz_connector.worktype",
+        "pk": 10000,
+        "fields": {
+            "name": "Foo",
+            "parent": 17,
+            "child_order": 1,
+            "description": "Bar",
+            "gid": "11111111-2222-32f1-a641-f0f8676d14e6"
+        }
+    }
+]
