@@ -48,19 +48,20 @@ def test_area_type_json_export_file(mock_path_home):
     area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
 
     assert area_type.json_export_file == Path(
-        "/foo/bar/Mneia/mneia-data/area-types/06dd0ae4-8c74-30bb-b43d-95dcedf961de.json"
+        "/foo/bar/Mneia/mneia-data/area-types/06dd0ae4-8c74-30bb-b43d-95dcedf961de/"
+        "06dd0ae4-8c74-30bb-b43d-95dcedf961de.json"
     )
 
 
 @pytest.mark.django_db
 @mock.patch.object(Path, "home")
-def test_area_type_json_export_dir(mock_path_home):
+def test_area_type_data_dir(mock_path_home):
     """
     Tests that the directory path in which an instance will be exported as JSON is correct.
     """
     mock_path_home.return_value = Path("/foo/bar/")
     area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
-    assert area_type.json_export_dir == Path("/foo/bar/Mneia/mneia-data/area-types/")
+    assert area_type.data_dir == Path("/foo/bar/Mneia/mneia-data/area-types/06dd0ae4-8c74-30bb-b43d-95dcedf961de/")
 
 
 @pytest.mark.django_db
@@ -80,12 +81,12 @@ def test_area_type_as_json():
 
 @pytest.mark.django_db
 @mock.patch.object(AreaType, "json_export_file")
-@mock.patch.object(AreaType, "json_export_dir")
-def test_area_type_json_export(mock_json_export_dir, mock_json_export_file):
+@mock.patch.object(AreaType, "data_dir")
+def test_area_type_json_export(mock_data_dir, mock_json_export_file):
     area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
     area_type.export_json()
 
-    mock_json_export_dir.mkdir.assert_called_once_with(parents=True, exist_ok=True)
+    mock_data_dir.mkdir.assert_called_once_with(parents=True, exist_ok=True)
     mock_json_export_file.write_text.assert_called_once_with(
         '{\n  "child_order": 1,\n  "created_in_mneia": "2025-01-10 13:42:00+00:00",\n  "description": '
         '"Country is used for areas included (or previously included) in ISO 3166-1, e.g. United States.",\n  '

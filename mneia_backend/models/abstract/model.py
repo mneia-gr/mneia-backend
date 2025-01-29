@@ -28,14 +28,17 @@ class Model(models.Model):
     )
 
     @property
-    def json_export_dir(self) -> Path:
-        """The directory in which the data from an instance will be exported as JSON."""
-        return Path.home() / "Mneia" / "mneia-data" / f"{slugify(self._meta.verbose_name_plural)}"
+    def data_dir(self) -> Path:
+        """
+        The directory in which the data from an instance can be found. This is used to export an instance as a JSON
+        file.
+        """
+        return Path.home() / "Mneia" / "mneia-data" / f"{slugify(self._meta.verbose_name_plural)}" / str(self.id)
 
     @property
     def json_export_file(self) -> Path:
         """The file in which the data from an instance will be exported as JSON."""
-        return self.json_export_dir / f"{self.id}.json"
+        return self.data_dir / f"{self.id}.json"
 
     @property
     def as_json(self) -> Dict:
@@ -59,7 +62,7 @@ class Model(models.Model):
 
     def export_json(self) -> None:
         """Export an instance as a JSON file."""
-        self.json_export_dir.mkdir(parents=True, exist_ok=True)
+        self.data_dir.mkdir(parents=True, exist_ok=True)
         self.json_export_file.write_text(json.dumps(self.as_json, indent=2, ensure_ascii=False, sort_keys=True))
 
     @property
