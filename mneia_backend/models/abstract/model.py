@@ -93,8 +93,11 @@ class Model(models.Model):
         """
         if not hasattr(self, "as_yaml"):
             return
+        yaml_export = f"---\n{yaml.dump(self.as_yaml, allow_unicode=True)}---\n"
+        if self.content is not None:
+            yaml_export = yaml_export + f"\n{self.content}\n"
         self.yaml_export_dir.mkdir(parents=True, exist_ok=True)
-        self.yaml_export_file.write_text(f"---\n{yaml.dump(self.as_yaml, allow_unicode=True)}---\n")
+        self.yaml_export_file.write_text("".join(yaml_export))
 
     class Meta:
         abstract = True

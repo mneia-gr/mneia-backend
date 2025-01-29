@@ -133,7 +133,7 @@ def test_area_type_yaml_export(mock_yaml_export_dir, mock_yaml_export_file):
 @pytest.mark.django_db
 @mock.patch.object(Person, "yaml_export_file")
 @mock.patch.object(Person, "yaml_export_dir")
-def test_person_yaml_export(mock_yaml_export_dir, mock_yaml_export_file):
+def test_person_yaml_export_without_content(mock_yaml_export_dir, mock_yaml_export_file):
     """Person has the `as_yaml` property, so the export should run."""
 
     person = Person.objects.get(id="63eec1f5-f535-46a0-9fd3-6826a4f09e5c")  # from fixture
@@ -151,6 +151,34 @@ def test_person_yaml_export(mock_yaml_export_dir, mock_yaml_export_file):
         "  works: []\n"
         "name: Κυβέλη\n"
         "---\n"
+    )
+
+
+@pytest.mark.django_db
+@mock.patch.object(Person, "content", new_callable=mock.PropertyMock)
+@mock.patch.object(Person, "yaml_export_file")
+@mock.patch.object(Person, "yaml_export_dir")
+def test_person_yaml_export_with_content(mock_yaml_export_dir, mock_yaml_export_file, mock_content):
+    """Person has the `as_yaml` property, so the export should run."""
+    mock_content.return_value = "foo"
+
+    person = Person.objects.get(id="63eec1f5-f535-46a0-9fd3-6826a4f09e5c")  # from fixture
+    person.export_yaml()
+
+    mock_yaml_export_dir.mkdir.assert_called_once_with(parents=True, exist_ok=True)
+    mock_yaml_export_file.write_text.assert_called_once_with(
+        "---\n"
+        "links:\n"
+        "  photographs:\n"
+        "  - link_phrase: is the subject of\n"
+        "    photograph:\n"
+        "      id: b07ad067-fb07-4ced-818e-05e371264689\n"
+        "      name: 'Ελληνικές δόξες: Η κ. ΚΥΒΕΛΗ ΘΕΟΔΩΡΙΔΟΥ εις την «Τρίμορφη Γυναίκα»'\n"
+        "  works: []\n"
+        "name: Κυβέλη\n"
+        "---\n"
+        "\n"
+        "foo\n"
     )
 
 
