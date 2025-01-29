@@ -10,5 +10,17 @@
             "order": 1,
             "updated_in_mneia": "2025-01-26 06:48:24.746448+00:00"
         }
+    },
+    {
+        "model": "mneia_backend.magazineissue",
+        "pk": "89f09153-83d8-4285-9fc7-67fb56b8ff79",
+        "fields": {
+            "created_in_mneia": "2025-01-29 16:46:57.501878+00:00",
+            "date_published": "1926-03-07",
+            "issue_number": "2ον Τεύχος",
+            "magazine": "0e609d69-f994-4930-8812-b188175f35d1",
+            "order": 2,
+            "updated_in_mneia": "2025-01-29 16:46:57.501891+00:00"
+          }
     }
 ]

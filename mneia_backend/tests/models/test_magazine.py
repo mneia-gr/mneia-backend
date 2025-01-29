@@ -20,5 +20,10 @@ def test_magazine_as_yaml():
                 "issue_number": "1ον Τεύχος",
                 "date_published": "28 Φεβρουαρίου 1926",
             },
+            {
+                "id": "89f09153-83d8-4285-9fc7-67fb56b8ff79",
+                "issue_number": "2ον Τεύχος",
+                "date_published": "7 Μαρτίου 1926",
+            },
         ],
     }

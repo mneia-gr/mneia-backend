@@ -47,6 +47,7 @@ def _load_test_fixtures(django_db_blocker):
         "work-type",
         "work",  # depends on work-type
         "link-person-work",  # depends on link, person, and work
+        "link-magazine-issue-work",  # depends on link, magazine-issue and work
     ]
     with django_db_blocker.unblock():
         for fixture in fixtures:
