@@ -6,8 +6,8 @@ from mneia_backend.models.work import Work
 
 @pytest.mark.django_db
 def test_work_str():
-    work = Work.objects.get(id="11111111-4444-4f16-90f1-290c99f233f3")  # from fixture
-    assert str(work) == "Foo"
+    work = Work.objects.get(id="4adcfb27-8f2a-4122-8906-93ff18a3b9dc")  # from fixture
+    assert str(work) == "Από το «Καπρίς»"
 
 
 @pytest.mark.django_db
@@ -22,3 +22,22 @@ def test_work_api_import_from_musicbrainz():
 
     response = api_client.get("/works/864c45d9-8450-4b6f-9570-744980fba21e/")
     assert response.status_code == 200  # the Work exists after we import it
+
+
+@pytest.mark.django_db
+def test_work_as_yaml():
+    work = Work.objects.get(id="4adcfb27-8f2a-4122-8906-93ff18a3b9dc")  # from fixture
+    assert work.as_yaml == {
+        "name": "Από το «Καπρίς»",
+        "links": {
+            "people": [
+                {
+                    "link_phrase": "authored by",
+                    "person": {
+                        "id": "7ea22d2b-4781-4882-af6f-15a6ca286501",
+                        "name": "Σύλβιος",
+                    },
+                }
+            ]
+        },
+    }

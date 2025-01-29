@@ -28,6 +28,33 @@
     },
     {
         "__COMMENT__": [
+            "This LinkType is used to link a person to a work, where the person is the author of the work. MBID is",
+            "null because this is specific to Mneia, not imported from MusicBrainz."
+        ],
+        "model": "mneia_backend.linktype",
+        "pk": "d2b71091-86fd-43cc-aa09-fd05d2f43e45",
+        "fields": {
+            "child_order": 0,
+            "created_in_mneia": "2025-01-28 17:28:59.522231+00:00",
+            "description": "This is used to Link a Person to a Work, where the Person is the author of the Work.",
+            "entity0_cardinality": 0,
+            "entity1_cardinality": 0,
+            "entity_type0": "person",
+            "entity_type1": "work",
+            "has_dates": true,
+            "is_deprecated": false,
+            "last_updated": "2025-01-28 17:28:59.522279+00:00",
+            "link_phrase": "author of",
+            "long_link_phrase": "is the author of",
+            "mbid": null,
+            "name": "author",
+            "parent": null,
+            "reverse_link_phrase": "authored by",
+            "updated_in_mneia": "2025-01-28 17:28:59.522246+00:00"
+        }
+    },
+    {
+        "__COMMENT__": [
             "This LinkType is used to link a Magazine Issue to a Photograph, where the Photograph has been published",
             "in that Magazine Issue.",
             "NOTE!!! The MBID here is fake, used for testing only.",

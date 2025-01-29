@@ -1,3 +1,5 @@
+from typing import Dict
+
 import rest_framework
 from django.contrib import admin
 from django.db import models
@@ -18,6 +20,13 @@ class Work(abstract.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def as_yaml(self) -> Dict:
+        return {
+            "name": self.name,
+            "links": {"people": [link_to_person.as_link_to_person for link_to_person in self.links_to_people.all()]},
+        }
 
     class Meta:
         ordering = ["name"]
@@ -67,6 +76,4 @@ class WorkViewSet(rest_framework.viewsets.ModelViewSet):
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Work._meta.fields]
-
-    # For now, all fields are read-only in Admin, because all Works come from MusicBrainz:
-    readonly_fields = [field.name for field in Work._meta.fields]
+    readonly_fields = ["id", "created_in_mneia", "updated_in_mneia", "mbid", "edits_pending", "last_updated"]

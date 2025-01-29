@@ -5,23 +5,23 @@ from mneia_backend.models.links.person_work import LinkPersonWork
 
 @pytest.mark.django_db
 def test_link_person_work_as_link_to_work():
-    link_person_work = LinkPersonWork.objects.get(id="11111111-2222-47b6-a0b3-19f3a1cdcf45")
+    link_person_work = LinkPersonWork.objects.get(id="b5dc7d18-8d7d-4850-ace2-15be3f0520ee")
     assert link_person_work.as_link_to_work == {
-        "link_phrase": "is the subject of",
+        "link_phrase": "is the author of",
         "work": {
-            "id": "11111111-4444-4f16-90f1-290c99f233f3",
-            "name": "Foo",
+            "id": "4adcfb27-8f2a-4122-8906-93ff18a3b9dc",
+            "name": "Από το «Καπρίς»",
         },
     }
 
 
 @pytest.mark.django_db
 def test_link_person_work_as_link_to_person():
-    link_person_work = LinkPersonWork.objects.get(id="11111111-2222-47b6-a0b3-19f3a1cdcf45")
+    link_person_work = LinkPersonWork.objects.get(id="b5dc7d18-8d7d-4850-ace2-15be3f0520ee")
     assert link_person_work.as_link_to_person == {
-        "link_phrase": "has subject",
+        "link_phrase": "authored by",
         "person": {
-            "id": "63eec1f5-f535-46a0-9fd3-6826a4f09e5c",
-            "name": "Κυβέλη",
+            "id": "7ea22d2b-4781-4882-af6f-15a6ca286501",
+            "name": "Σύλβιος",
         },
     }

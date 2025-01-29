@@ -48,6 +48,29 @@
     },
     {
         "__COMMENTS__": [
+            "This Link is of type 'author' between a 'Person' and a 'Work', where the Person is the author of the",
+            "Work. It has no link attributes. MBID is null because this is specific to Mneia."
+        ],
+        "model": "mneia_backend.link",
+        "pk": "ab469fb8-b0bb-4f40-8346-b7f5e1635907",
+        "fields": {
+            "attribute_count": 0,
+            "begin_date_day": null,
+            "begin_date_month": null,
+            "begin_date_year": null,
+            "created": "2025-01-28 19:24:11.072127+00:00",
+            "created_in_mneia": "2025-01-28 19:24:11.072091+00:00",
+            "end_date_day": null,
+            "end_date_month": null,
+            "end_date_year": null,
+            "ended": false,
+            "link_type": "d2b71091-86fd-43cc-aa09-fd05d2f43e45",
+            "mbid": null,
+            "updated_in_mneia": "2025-01-28 19:24:11.072103+00:00"
+        }
+    },
+    {
+        "__COMMENTS__": [
             "This FAKE Link is here to test API GET by MBID.",
             "TODO!!! Maybe replace this with a 'real' Link once something is imported from MusicBrainz."
         ],

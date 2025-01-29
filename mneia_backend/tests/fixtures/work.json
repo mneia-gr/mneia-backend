@@ -1,19 +1,16 @@
 [
     {
-        "__COMMENTS__": [
-            "FAKE!"
-        ],
         "model": "mneia_backend.work",
-        "pk": "11111111-4444-4f16-90f1-290c99f233f3",
+        "pk": "4adcfb27-8f2a-4122-8906-93ff18a3b9dc",
         "fields": {
-            "mbid": null,
-            "name": "Foo",
-            "type": "66b8026e-7ce8-36f8-a8d5-7c346c7b9a88",
             "comment": "",
+            "created_in_mneia": "2025-01-28 19:15:24.080635+00:00",
             "edits_pending": 0,
-            "last_updated": "2025-01-28 17:41:06.071066+00:00",
-            "created_in_mneia": "2025-01-28 18:17:06.071039+00:00",
-            "updated_in_mneia": "2025-01-28 18:17:06.071066+00:00"
+            "last_updated": "2025-01-28 19:15:24.080716+00:00",
+            "mbid": null,
+            "name": "Από το «Καπρίς»",
+            "type": "66b8026e-7ce8-36f8-a8d5-7c346c7b9a88",
+            "updated_in_mneia": "2025-01-28 19:15:24.080663+00:00"
         }
     },
     {

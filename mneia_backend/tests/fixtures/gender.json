@@ -1,5 +1,24 @@
 [
     {
+        "__COMMENTS__": [
+            "In mneia-backend, Gender is a dependency of Person, so this fixture is required by some Person fixtures."
+        ],
+        "model": "mneia_backend.gender",
+        "pk": "36d3d30a-839d-3eda-8cb3-29be4384e4a9",
+        "fields": {
+            "child_order": 1,
+            "created_in_mneia": "2025-01-28 19:18:39.361724+00:00",
+            "description": null,
+            "mbid": 1,
+            "name": "Male",
+            "parent": null,
+            "updated_in_mneia": "2025-01-28 19:18:39.361747+00:00"
+        }
+    },
+    {
+        "__COMMENTS__": [
+            "In mneia-backend, Gender is a dependency of Person, so this fixture is required by some Person fixtures."
+        ],
         "model": "mneia_backend.gender",
         "pk": "93452b5a-a947-30c8-934f-6a4056b151c2",
         "fields": {
@@ -13,17 +32,24 @@
           }
     },
     {
+        "__COMMENTS__": [
+            "This Gender exists in MusicBrainz but not in Mneia, and is used to unit-test importing a Gender from",
+            "MusicBrainz to Mneia."
+        ],
         "model": "django_musicbrainz_connector.gender",
-        "pk": 1,
+        "pk": 3,
         "fields": {
-            "name": "Male",
+            "name": "Other",
             "parent": null,
-            "child_order": 1,
+            "child_order": 5,
             "description": null,
-            "gid": "36d3d30a-839d-3eda-8cb3-29be4384e4a9"
-        }
+            "gid": "081c0bf5-da60-37b0-95f8-2207a3f7f9d6"
+        }        
     },
     {
+        "__COMMENTS__": [
+            "in MusicBrainz, Gender is a dependency of Artist, so this fixture is required by some Artist fixtures."
+        ],
         "model": "django_musicbrainz_connector.gender",
         "pk": 2,
         "fields": {
@@ -35,6 +61,9 @@
         }
     },
     {
+        "__COMMENTS__": [
+            "This FAKE Gender is used to unit-test importing a Gender which has a parent, from MusicBrainz into Mneia."
+        ],
         "model": "django_musicbrainz_connector.gender",
         "pk": 100,
         "fields": {
@@ -46,6 +75,9 @@
         }
     },
     {
+        "__COMMENTS__": [
+            "This FAKE Gender is used to unit-test importing a Gender which has a parent, from MusicBrainz into Mneia."
+        ],
         "model": "django_musicbrainz_connector.gender",
         "pk": 101,
         "fields": {

@@ -23,5 +23,30 @@
             "created_in_mneia": "2025-01-14 14:05:27.946619+00:00",
             "updated_in_mneia": "2025-01-14 14:05:27.946635+00:00"
         }
+    },
+    {
+        "model": "mneia_backend.person",
+        "pk": "7ea22d2b-4781-4882-af6f-15a6ca286501",
+        "fields": {
+            "area": "803db0ca-b6ed-3bbc-aeb8-f89efd0a2168",
+            "begin_area": null,
+            "begin_date_day": null,
+            "begin_date_month": null,
+            "begin_date_year": null,
+            "comment": "",
+            "created_in_mneia": "2025-01-28 19:18:58.670130+00:00",
+            "edits_pending": 0,
+            "end_area": null,
+            "end_date_day": 31,
+            "end_date_month": 10,
+            "end_date_year": 1948,
+            "ended": true,
+            "gender": "36d3d30a-839d-3eda-8cb3-29be4384e4a9",
+            "last_updated": "2025-01-28 19:18:58.670188+00:00",
+            "mbid": 976870,
+            "name": "Σύλβιος",
+            "sort_name": "Sylvios",
+            "updated_in_mneia": "2025-01-28 19:18:58.670142+00:00"
+        }
     }
 ]
