@@ -178,7 +178,7 @@ def test_person_yaml_export_with_content(mock_yaml_export_dir, mock_yaml_export_
         "name: Κυβέλη\n"
         "---\n"
         "\n"
-        "foo\n"
+        "<p>foo</p>\n\n"
     )
 
 

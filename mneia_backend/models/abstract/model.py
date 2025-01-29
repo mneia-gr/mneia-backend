@@ -3,6 +3,7 @@ import uuid
 from pathlib import Path
 from typing import Dict, Optional
 
+import markdown2
 import yaml
 from django.db import models
 from django.utils.text import slugify
@@ -95,7 +96,7 @@ class Model(models.Model):
             return
         yaml_export = f"---\n{yaml.dump(self.as_yaml, allow_unicode=True)}---\n"
         if self.content is not None:
-            yaml_export = yaml_export + f"\n{self.content}\n"
+            yaml_export = yaml_export + f"\n{markdown2.markdown(self.content)}\n"
         self.yaml_export_dir.mkdir(parents=True, exist_ok=True)
         self.yaml_export_file.write_text("".join(yaml_export))
 

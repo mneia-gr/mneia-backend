@@ -42,10 +42,16 @@ class Link(abstract.Model):
         if self.link_attributes.count() == 0:
             _.append("with no attributes")
         elif self.link_attributes.count() == 1:
-            _.append(f"with attribute '{self.link_attributes.first().attribute_type.name}'")
+            _.append("with attribute")
         else:
-            link_attribute_names = [link_attribute.attribute_type.name for link_attribute in self.link_attributes.all()]
-            _.append(f"with attributes: {", ".join(link_attribute_names)}")
+            _.append("with attributes")
+
+        for link_attribute in self.link_attributes.all():
+            link_attribute_type = link_attribute.attribute_type
+            link_text_attribute_type = link_attribute_type.link_text_attribute_types.first()
+            link_attribute_text_value = link_text_attribute_type.link_attribute_text_values.filter(link=self)[0]
+            _.append(f"{link_attribute_type.name}={link_attribute_text_value.text_value}")
+
         return " ".join(_)
 
     class Meta:

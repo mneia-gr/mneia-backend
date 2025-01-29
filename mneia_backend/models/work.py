@@ -6,6 +6,8 @@ from django.db import models
 from django_musicbrainz_connector.models.work import Work as MusicBrainzWork
 
 from mneia_backend.models import abstract
+from mneia_backend.models.link_type import LinkType
+from mneia_backend.models.links.person_work import LinkPersonWork
 from mneia_backend.models.work_type import WorkType
 
 
@@ -20,6 +22,16 @@ class Work(abstract.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def authors(self):
+        """Returns the instances of Person that are the authors of this Work, if there are any."""
+        link_type = LinkType.objects.filter(entity_type0="person", entity_type1="work", name="author").first()
+        links_person_work = LinkPersonWork.objects.filter(work=self)
+        links_person_work = [
+            link_person_work for link_person_work in links_person_work if link_person_work.link.link_type == link_type
+        ]
+        return [link_person_work.person for link_person_work in links_person_work]
 
     @property
     def as_yaml(self) -> Dict:

@@ -24,12 +24,17 @@ class LinkMagazineIssueWork(abstract.LinkModel):
                 "issue_number": self.magazine_issue.issue_number,
                 "date_published": format_date(self.magazine_issue.date_published, format="long", locale="el_GR"),
             },
-            "work": {
-                "id": str(self.work.id),
-                "name": self.work.name,
-            },
+            "work": {"id": str(self.work.id), "name": self.work.name, "type": self.work.type.name, "authors": []},
             "attributes": {},
         }
+
+        for author in self.work.authors:
+            _["work"]["authors"].append(
+                {
+                    "id": str(author.id),
+                    "name": author.name,
+                }
+            )
 
         # For each link attribute, add a key-value pair to the representation of this link as a reference.
         # TODO: Not all link attribute types have text values, need to figure this out later.

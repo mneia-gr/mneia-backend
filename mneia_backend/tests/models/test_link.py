@@ -50,5 +50,5 @@ def test_link_calculated_fields():
     link = Link.objects.get(id="a39b93d2-18d8-41b7-b87d-d467f110bf05")
     assert link.calculated_attribute_count == 1
     assert (
-        link.explanation == "Link of type 'publication' between 'magazine_issue' and 'photograph' with attribute 'page'"
+        link.explanation == "Link of type 'publication' between 'magazine_issue' and 'photograph' with attribute page=1"
     )

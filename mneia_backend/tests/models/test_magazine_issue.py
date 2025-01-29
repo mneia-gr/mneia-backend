@@ -39,6 +39,7 @@ def test_magazine_issue_as_yaml():
                         "page": "1",
                     },
                 }
-            ]
+            ],
+            "works": [],
         },
     }

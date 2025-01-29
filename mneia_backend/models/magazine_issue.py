@@ -37,7 +37,8 @@ class MagazineIssue(abstract.Model):
             "references": {
                 "photographs": [
                     link_to_photograph.as_reference for link_to_photograph in self.links_to_photographs.all()
-                ]
+                ],
+                "works": [link_to_work.as_reference for link_to_work in self.links_to_works.all()],
             },
         }
 

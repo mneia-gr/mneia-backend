@@ -34,8 +34,7 @@ class LinkMagazineIssuePhotograph(abstract.LinkModel):
         # For each link attribute, add a key-value pair to the representation of this link as a reference.
         # TODO: Not all link attribute types have text values, need to figure this out later.
         link = self.link
-        link_attributes = link.link_attributes.all()
-        for link_attribute in link_attributes:
+        for link_attribute in link.link_attributes.all():
             link_attribute_type = link_attribute.attribute_type
             link_text_attribute_type = link_attribute_type.link_text_attribute_types.first()
             link_attribute_text_value = link_text_attribute_type.link_attribute_text_values.filter(link=link)[0]
