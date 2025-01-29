@@ -152,3 +152,40 @@ def test_person_yaml_export(mock_yaml_export_dir, mock_yaml_export_file):
         "name: Κυβέλη\n"
         "---\n"
     )
+
+
+@pytest.mark.django_db
+@mock.patch.object(Path, "home")
+def test_area_type_content_file(mock_path_home):
+    mock_path_home.return_value = Path("/foo/bar/")
+
+    area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
+
+    assert area_type.content_file == Path(
+        "/foo/bar/Mneia/mneia-data/area-types/06dd0ae4-8c74-30bb-b43d-95dcedf961de/"
+        "06dd0ae4-8c74-30bb-b43d-95dcedf961de.md"
+    )
+
+
+@pytest.mark.django_db
+def test_area_type_content_is_none():
+    """If the content_file of an instance is not an existing file, then the content should be None."""
+    area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
+    assert area_type.content is None
+
+
+@pytest.mark.django_db
+@mock.patch.object(AreaType, "content_file")
+def test_area_type_content(mock_content_file, tmp_path):
+    """
+    If the content_file of an instance is an existing file, then the content should be its contents.
+
+    Fixture tmp_path comes from pytest: https://docs.pytest.org/en/stable/how-to/tmp_path.html
+    """
+    mock_content_file.return_value = tmp_path / "temp.txt"
+    mock_content_file.write_text("something")
+
+    area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
+    area_type.content
+
+    mock_content_file.read_text.assert_called_once()

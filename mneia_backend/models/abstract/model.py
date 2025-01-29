@@ -1,7 +1,7 @@
 import json
 import uuid
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Optional
 
 import yaml
 from django.db import models
@@ -34,6 +34,15 @@ class Model(models.Model):
         file.
         """
         return Path.home() / "Mneia" / "mneia-data" / f"{slugify(self._meta.verbose_name_plural)}" / str(self.id)
+
+    @property
+    def content_file(self) -> Path:
+        return self.data_dir / f"{self.id}.md"
+
+    @property
+    def content(self) -> Optional[str]:
+        if self.content_file.is_file():
+            return self.content_file.read_text()
 
     @property
     def json_export_file(self) -> Path:
