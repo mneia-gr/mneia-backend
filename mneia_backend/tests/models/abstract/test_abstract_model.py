@@ -147,6 +147,7 @@ def test_person_yaml_export(mock_yaml_export_dir, mock_yaml_export_file):
         "    photograph:\n"
         "      id: b07ad067-fb07-4ced-818e-05e371264689\n"
         "      name: 'Ελληνικές δόξες: Η κ. ΚΥΒΕΛΗ ΘΕΟΔΩΡΙΔΟΥ εις την «Τρίμορφη Γυναίκα»'\n"
+        "  works: []\n"
         "name: Κυβέλη\n"
         "---\n"
     )
