@@ -15,6 +15,7 @@ class LinkAttribute(abstract.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        verbose_name = "Link Attribute"
         verbose_name_plural = "Link Attributes"
         constraints = [models.UniqueConstraint(fields=["link", "attribute_type"], name="unique_together")]
 
@@ -86,5 +87,5 @@ class LinkAttributeViewSet(rest_framework.viewsets.ModelViewSet):
 
 @admin.register(LinkAttribute)
 class LinkAttributeAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in LinkAttribute._meta.fields]
+    list_display = ["id", "link", "attribute_type"]
     readonly_fields = ["id"]

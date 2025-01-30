@@ -43,6 +43,7 @@ class LinkMagazineIssuePhotograph(abstract.LinkModel):
         return _
 
     class Meta:
+        verbose_name = "Link Magazine Issue - Photograph"
         verbose_name_plural = "Links Magazine Issue - Photograph"
 
 
@@ -59,5 +60,5 @@ class LinkMagazineIssuePhotographViewSet(rest_framework.viewsets.ModelViewSet):
 
 @admin.register(LinkMagazineIssuePhotograph)
 class LinkMagazineIssuePhotographAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in LinkMagazineIssuePhotograph._meta.fields]
+    list_display = ["link", "magazine_issue", "photograph"]
     readonly_fields = ["id", "mbid", "edits_pending", "link_order", "entity0_credit", "entity1_credit"]

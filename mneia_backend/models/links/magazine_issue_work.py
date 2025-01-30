@@ -65,5 +65,5 @@ class LinkMagazineIssueWorkViewSet(rest_framework.viewsets.ModelViewSet):
 
 @admin.register(LinkMagazineIssueWork)
 class LinkMagazineIssueWorkAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in LinkMagazineIssueWork._meta.fields]
+    list_display = ["link", "magazine_issue", "work"]
     readonly_fields = ["id", "mbid", "edits_pending", "link_order", "entity0_credit", "entity1_credit"]

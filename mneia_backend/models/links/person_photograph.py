@@ -32,6 +32,7 @@ class LinkPersonPhotograph(abstract.LinkModel):
         }
 
     class Meta:
+        verbose_name = "Link Person - Photograph"
         verbose_name_plural = "Links Person - Photograph"
 
 
@@ -48,5 +49,5 @@ class LinkPersonPhotographViewSet(rest_framework.viewsets.ModelViewSet):
 
 @admin.register(LinkPersonPhotograph)
 class LinkPersonPhotographAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in LinkPersonPhotograph._meta.fields]
+    list_display = ["link", "person", "photograph"]
     readonly_fields = ["id", "mbid", "edits_pending", "link_order", "entity0_credit", "entity1_credit"]

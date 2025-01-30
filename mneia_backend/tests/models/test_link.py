@@ -5,6 +5,15 @@ from mneia_backend.models.link import Link
 
 
 @pytest.mark.django_db
+def test_link_str():
+    link = Link.objects.get(id="956d1ec2-33b2-4cd6-8832-1bbcd0d42661")
+    assert str(link) == "Link of type 'subject' between 'person' and 'photograph' with no attributes"
+
+    link = Link.objects.get(id="a39b93d2-18d8-41b7-b87d-d467f110bf05")
+    assert str(link) == "Link of type 'publication' between 'magazine_issue' and 'photograph' with attribute page=1"
+
+
+@pytest.mark.django_db
 def test_link_api_get_by_uuid():
     """It is possible to GET a Link by either its UUID or its MBID. Here we are testing GET by UUID."""
     api_client = APIClient()
@@ -42,13 +51,18 @@ def test_link_api_import_from_musicbrainz():
 
 
 @pytest.mark.django_db
-def test_link_calculated_fields():
+def test_link_calculated_attribute_count():
     link = Link.objects.get(id="956d1ec2-33b2-4cd6-8832-1bbcd0d42661")
     assert link.calculated_attribute_count == 0
-    assert link.explanation == "Link of type 'subject' between 'person' and 'photograph' with no attributes"
 
     link = Link.objects.get(id="a39b93d2-18d8-41b7-b87d-d467f110bf05")
     assert link.calculated_attribute_count == 1
-    assert (
-        link.explanation == "Link of type 'publication' between 'magazine_issue' and 'photograph' with attribute page=1"
-    )
+
+
+@pytest.mark.django_db
+def test_link_attributes():
+    link = Link.objects.get(id="956d1ec2-33b2-4cd6-8832-1bbcd0d42661")
+    assert link.attributes == {}
+
+    link = Link.objects.get(id="a39b93d2-18d8-41b7-b87d-d467f110bf05")
+    assert link.attributes == {"page": "1"}

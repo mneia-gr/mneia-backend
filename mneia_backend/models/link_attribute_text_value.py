@@ -29,11 +29,6 @@ class LinkAttributeTextValue(abstract.Model):
     text_value = models.TextField()
 
     @property
-    def link_explanation(self) -> str:
-        """This is used in the Admin interface to help keep track of these values."""
-        return self.link.explanation
-
-    @property
     def attribute_type_name(self) -> str:
         """This is used in the Admin interface to help keep track of these values."""
         return self.attribute_type.attribute_type.name
@@ -50,5 +45,5 @@ class LinkAttributeTextValue(abstract.Model):
 
 @admin.register(LinkAttributeTextValue)
 class LinkAttributeTextValueAdmin(admin.ModelAdmin):
-    list_display = ["link_explanation", "attribute_type_name", "text_value"]
-    readonly_fields = ["id", "link_explanation", "attribute_type_name"]
+    list_display = ["link", "attribute_type_name", "text_value"]
+    readonly_fields = ["id", "attribute_type_name"]

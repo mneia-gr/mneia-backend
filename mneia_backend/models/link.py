@@ -1,3 +1,5 @@
+from typing import Dict
+
 import rest_framework
 from django.contrib import admin
 from django.db import models
@@ -30,31 +32,38 @@ class Link(abstract.Model):
         return self.link_attributes.count()
 
     @property
-    def explanation(self) -> str:
-        """
-        This helpful string is displayed in the Admin interface, it helps understand the purpose of a Link.
-        """
+    def attributes(self) -> Dict:
+        _ = {}
+        for link_attribute in self.link_attributes.all():
+            link_attribute_type = link_attribute.attribute_type
+            link_text_attribute_type = link_attribute_type.link_text_attribute_types.first()
+            if link_text_attribute_type.link_attribute_text_values.filter(link=self).count() == 0:
+                value = True
+            else:
+                value = link_text_attribute_type.link_attribute_text_values.filter(link=self)[0].text_value
+            _[link_attribute_type.name] = value
+        return _
+
+    def __str__(self) -> str:
         _ = [
             f"Link of type '{self.link_type.name}'",
             f"between '{self.link_type.entity_type0}'",
             f"and '{self.link_type.entity_type1}'",
         ]
-        if self.link_attributes.count() == 0:
+        if len(self.attributes) == 0:
             _.append("with no attributes")
-        elif self.link_attributes.count() == 1:
+        elif len(self.attributes) == 1:
             _.append("with attribute")
         else:
             _.append("with attributes")
 
-        for link_attribute in self.link_attributes.all():
-            link_attribute_type = link_attribute.attribute_type
-            link_text_attribute_type = link_attribute_type.link_text_attribute_types.first()
-            link_attribute_text_value = link_text_attribute_type.link_attribute_text_values.filter(link=self)[0]
-            _.append(f"{link_attribute_type.name}={link_attribute_text_value.text_value}")
+        for k, v in self.attributes.items():
+            _.append(f"{k}={v}")
 
         return " ".join(_)
 
     class Meta:
+        verbose_name = "Link"
         verbose_name_plural = "Links"
 
 
@@ -126,5 +135,5 @@ class LinkViewSet(rest_framework.viewsets.ModelViewSet):
 
 @admin.register(Link)
 class LinkAdmin(admin.ModelAdmin):
-    list_display = ["explanation", "link_type", "attribute_count", "calculated_attribute_count"]
-    readonly_fields = ["id", "mbid", "explanation", "calculated_attribute_count"]
+    list_display = ["__str__", "link_type", "attribute_count", "calculated_attribute_count"]
+    readonly_fields = ["id", "mbid", "calculated_attribute_count"]

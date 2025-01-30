@@ -63,6 +63,7 @@ class LinkType(abstract.Model):
         return f"{self.name}: {self.entity_type0} -> {self.entity_type1}"
 
     class Meta:
+        verbose_name = "Link Type"
         verbose_name_plural = "Link Types"
 
 
@@ -118,7 +119,15 @@ class LinkTypeViewSet(viewsets.ModelViewSet):
 
 @admin.register(LinkType)
 class LinkTypeAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in LinkType._meta.fields]
+    list_display = [
+        "name",
+        "entity_type0",
+        "entity_type1",
+        "description",
+        "link_phrase",
+        "reverse_link_phrase",
+        "long_link_phrase",
+    ]
 
     readonly_fields = [
         "id",
