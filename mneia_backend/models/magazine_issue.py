@@ -45,6 +45,11 @@ class MagazineIssue(abstract.Model):
     class Meta:
         verbose_name_plural = "Magazine Issues"
         ordering = ["order"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["magazine", "issue_number"], name="do_not_repeat_issue_numbers_for_the_same_magazine"
+            )
+        ]
 
 
 @admin.register(MagazineIssue)
