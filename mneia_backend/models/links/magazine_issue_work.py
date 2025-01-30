@@ -11,6 +11,11 @@ from mneia_backend.models import abstract
 class LinkMagazineIssueWork(abstract.LinkModel):
     magazine_issue = models.ForeignKey("MagazineIssue", on_delete=models.PROTECT, related_name="links_to_works")
     work = models.ForeignKey("Work", on_delete=models.PROTECT, related_name="links_to_magazine_issues")
+    link = models.ForeignKey(
+        "Link",
+        on_delete=models.PROTECT,
+        limit_choices_to={"link_type__entity_type0": "magazine_issue", "link_type__entity_type1": "work"},
+    )
 
     @property
     def as_reference(self) -> Dict:

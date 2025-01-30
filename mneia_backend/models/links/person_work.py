@@ -10,6 +10,11 @@ from mneia_backend.models import abstract
 class LinkPersonWork(abstract.LinkModel):
     person = models.ForeignKey("Person", on_delete=models.PROTECT, related_name="links_to_works")
     work = models.ForeignKey("Work", on_delete=models.PROTECT, related_name="links_to_people")
+    link = models.ForeignKey(
+        "Link",
+        on_delete=models.PROTECT,
+        limit_choices_to={"link_type__entity_type0": "person", "link_type__entity_type1": "work"},
+    )
 
     @property
     def as_link_to_work(self) -> Dict:
