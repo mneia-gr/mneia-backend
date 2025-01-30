@@ -59,3 +59,4 @@ class WorkTypeAdmin(admin.ModelAdmin):
 
     # all fields are read-only in Admin, because all Work Types come from MusicBrainz:
     readonly_fields = [field.name for field in WorkType._meta.fields]
+    readonly_fields = ["id", "mbid", "created_in_mneia", "updated_in_mneia", "child_order"]
