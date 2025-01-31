@@ -38,6 +38,7 @@ class Work(abstract.Model):
         return {
             "name": self.name,
             "links": {"people": [link_to_person.as_link_to_person for link_to_person in self.links_to_people.all()]},
+            "type": self.type.greek_name or self.type.name,
         }
 
     class Meta:

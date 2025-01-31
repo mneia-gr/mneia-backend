@@ -40,4 +40,5 @@ def test_work_as_yaml():
                 }
             ]
         },
+        "type": "Ποίημα",
     }
