@@ -39,6 +39,12 @@ class Work(abstract.Model):
             "name": self.name,
             "links": {"people": [link_to_person.as_link_to_person for link_to_person in self.links_to_people.all()]},
             "type": self.type.greek_name or self.type.name,
+            "references": {
+                "magazine-issues": [
+                    link_to_magazine_issue.as_reference
+                    for link_to_magazine_issue in self.links_to_magazine_issues.all()
+                ]
+            },
         }
 
     class Meta:
