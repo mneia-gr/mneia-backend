@@ -8,6 +8,7 @@
         "fields": {
             "mbid": 21,
             "name": "Poem",
+            "greek_name": "Ποίημα",
             "parent": null,
             "child_order": 2,
             "description": "A poem is a literary piece, generally short and in verse, where words are usually chosen for their sound and for the images and ideas they suggest.",

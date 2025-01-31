@@ -29,7 +29,12 @@ class LinkMagazineIssueWork(abstract.LinkModel):
                 "issue_number": self.magazine_issue.issue_number,
                 "date_published": format_date(self.magazine_issue.date_published, format="long", locale="el_GR"),
             },
-            "work": {"id": str(self.work.id), "name": self.work.name, "type": self.work.type.name, "authors": []},
+            "work": {
+                "id": str(self.work.id),
+                "name": self.work.name,
+                "type": self.work.type.greek_name or self.work.type.name,
+                "authors": [],
+            },
             "attributes": {},
         }
 

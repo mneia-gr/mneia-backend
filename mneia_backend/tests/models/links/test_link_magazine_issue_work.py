@@ -20,7 +20,7 @@ def test_link_magazine_issue_work_as_reference():
             "id": "4adcfb27-8f2a-4122-8906-93ff18a3b9dc",
             "name": "Από το «Καπρίς»",
             "authors": [{"id": "7ea22d2b-4781-4882-af6f-15a6ca286501", "name": "Σύλβιος"}],
-            "type": "Poem",
+            "type": "Ποίημα",
         },
         "attributes": {},
     }

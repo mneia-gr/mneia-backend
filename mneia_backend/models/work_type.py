@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.db import models
 from django_musicbrainz_connector.models import WorkType as MusicBrainzWorkType
 from rest_framework import serializers, viewsets
 from rest_framework.decorators import action
@@ -8,6 +9,8 @@ from mneia_backend.models import abstract
 
 
 class WorkType(abstract.TypeModel):
+    greek_name = models.CharField("Greek Name", max_length=255, null=True, blank=True)
+
     class Meta(abstract.TypeModel.Meta):
         verbose_name_plural = "Work Types"
 
@@ -55,8 +58,5 @@ class WorkTypeViewSet(viewsets.ModelViewSet):
 
 @admin.register(WorkType)
 class WorkTypeAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in WorkType._meta.fields]
-
-    # all fields are read-only in Admin, because all Work Types come from MusicBrainz:
-    readonly_fields = [field.name for field in WorkType._meta.fields]
+    list_display = ["name", "greek_name", "description", "mbid", "parent", "child_order"]
     readonly_fields = ["id", "mbid", "created_in_mneia", "updated_in_mneia", "child_order"]
