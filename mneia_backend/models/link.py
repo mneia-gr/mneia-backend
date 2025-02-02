@@ -137,3 +137,5 @@ class LinkViewSet(rest_framework.viewsets.ModelViewSet):
 class LinkAdmin(admin.ModelAdmin):
     list_display = ["__str__", "link_type", "attribute_count", "calculated_attribute_count"]
     readonly_fields = ["id", "mbid", "calculated_attribute_count"]
+    list_filter = ["link_type__entity_type0", "link_type__entity_type1"]
+    show_facets = admin.ShowFacets.ALWAYS

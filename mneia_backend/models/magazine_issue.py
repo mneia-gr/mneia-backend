@@ -57,3 +57,5 @@ class MagazineIssue(abstract.Model):
 class PersonAdmin(admin.ModelAdmin):
     list_display = ["issue_number", "magazine", "order", "date_published"]
     readonly_fields = ["id", "created_in_mneia", "updated_in_mneia"]
+    list_filter = ["magazine__name"]
+    show_facets = admin.ShowFacets.ALWAYS
