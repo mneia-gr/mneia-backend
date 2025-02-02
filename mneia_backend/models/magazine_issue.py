@@ -21,6 +21,9 @@ class MagazineIssue(abstract.Model):
     issue_number = models.CharField(max_length=15)
     order = models.PositiveSmallIntegerField()
     date_published = models.DateField()
+    pages_number = models.PositiveSmallIntegerField(
+        "Pages Number", help_text="The number of pages in this magazine issue", null=True, blank=True
+    )
 
     def __str__(self) -> str:
         return f"{self.magazine.name} - Issue {self.issue_number}"
@@ -55,7 +58,8 @@ class MagazineIssue(abstract.Model):
 
 @admin.register(MagazineIssue)
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ["issue_number", "magazine", "order", "date_published"]
+    list_display = ["issue_number", "magazine", "order", "pages_number", "date_published"]
     readonly_fields = ["id", "created_in_mneia", "updated_in_mneia"]
     list_filter = ["magazine__name"]
     show_facets = admin.ShowFacets.ALWAYS
+    list_editable = ["pages_number"]
