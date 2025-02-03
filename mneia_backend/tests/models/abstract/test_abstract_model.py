@@ -217,3 +217,60 @@ def test_area_type_content(mock_content_file, tmp_path):
     area_type.content
 
     mock_content_file.read_text.assert_called_once()
+
+
+@pytest.mark.django_db
+@mock.patch.object(Path, "home")
+def test_area_type_notes_file(mock_path_home):
+    mock_path_home.return_value = Path("/foo/bar/")
+
+    area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
+
+    assert area_type.notes_file == Path(
+        "/foo/bar/Mneia/mneia-data/area-types/06dd0ae4-8c74-30bb-b43d-95dcedf961de/notes.md"
+    )
+
+
+@pytest.mark.django_db
+@mock.patch.object(AreaType, "notes_file")
+def test_area_type_notes(mock_notes_file, tmp_path):
+    """
+    If the notes_file of an instance is an existing file, then the notes should be its contents.
+
+    Fixture tmp_path comes from pytest: https://docs.pytest.org/en/stable/how-to/tmp_path.html
+    """
+    mock_notes_file.return_value = tmp_path / "temp.txt"
+    mock_notes_file.write_text("something")
+
+    area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
+    area_type.notes
+
+    mock_notes_file.read_text.assert_called_once()
+
+
+@pytest.mark.django_db
+@mock.patch.object(Person, "notes", new_callable=mock.PropertyMock)
+@mock.patch.object(Person, "yaml_export_file")
+@mock.patch.object(Person, "yaml_export_dir")
+def test_person_yaml_export_with_notes(mock_yaml_export_dir, mock_yaml_export_file, mock_notes):
+    mock_notes.return_value = "foo"
+
+    person = Person.objects.get(id="63eec1f5-f535-46a0-9fd3-6826a4f09e5c")  # from fixture
+    person.export_yaml()
+
+    mock_yaml_export_dir.mkdir.assert_called_once_with(parents=True, exist_ok=True)
+    mock_yaml_export_file.write_text.assert_called_once_with(
+        "---\n"
+        "links:\n"
+        "  photographs:\n"
+        "  - link_phrase: is the subject of\n"
+        "    photograph:\n"
+        "      id: b07ad067-fb07-4ced-818e-05e371264689\n"
+        "      name: 'Ελληνικές δόξες: Η κ. ΚΥΒΕΛΗ ΘΕΟΔΩΡΙΔΟΥ εις την «Τρίμορφη Γυναίκα»'\n"
+        "  works: []\n"
+        "name: Κυβέλη\n"
+        "---\n"
+        "\n"
+        "<h2>Σημειώσεις</h2>\n\n"
+        "<p>foo</p>\n\n"
+    )

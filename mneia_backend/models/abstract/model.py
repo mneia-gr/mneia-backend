@@ -46,6 +46,15 @@ class Model(models.Model):
             return self.content_file.read_text()
 
     @property
+    def notes_file(self) -> Path:
+        return self.data_dir / "notes.md"
+
+    @property
+    def notes(self) -> Optional[str]:
+        if self.notes_file.is_file():
+            return self.notes_file.read_text()
+
+    @property
     def json_export_file(self) -> Path:
         """The file in which the data from an instance will be exported as JSON."""
         return self.data_dir / f"{self.id}.json"
@@ -97,6 +106,8 @@ class Model(models.Model):
         yaml_export = f"---\n{yaml.dump(self.as_yaml, allow_unicode=True)}---\n"
         if self.content is not None:
             yaml_export = yaml_export + f"\n{markdown2.markdown(self.content)}\n"
+        if self.notes is not None:
+            yaml_export = yaml_export + f"\n<h2>Σημειώσεις</h2>\n\n{markdown2.markdown(self.notes)}\n"
         self.yaml_export_dir.mkdir(parents=True, exist_ok=True)
         self.yaml_export_file.write_text("".join(yaml_export))
 
