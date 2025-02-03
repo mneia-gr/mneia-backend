@@ -33,6 +33,7 @@ class MagazineIssue(abstract.Model):
         return {
             "issue_number": self.issue_number,
             "date_published": format_date(self.date_published, format="long", locale="el_GR"),
+            "pages_number": self.pages_number,
             "magazine": {
                 "id": str(self.magazine.id),
                 "name": self.magazine.name,

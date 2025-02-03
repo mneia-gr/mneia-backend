@@ -15,6 +15,7 @@ def test_magazine_issue_as_yaml():
     assert magazine.as_yaml == {
         "issue_number": "1ον Τεύχος",
         "date_published": "28 Φεβρουαρίου 1926",
+        "pages_number": 8,
         "magazine": {
             "id": "0e609d69-f994-4930-8812-b188175f35d1",
             "name": "Μεγάλη Ελληνική Εγκυκλοπαίδεια",

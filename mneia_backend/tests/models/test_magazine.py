@@ -19,11 +19,13 @@ def test_magazine_as_yaml():
                 "id": "49323bf2-767c-4812-b07a-f71a596b15e5",
                 "issue_number": "1ον Τεύχος",
                 "date_published": "28 Φεβρουαρίου 1926",
+                "pages_number": 8,
             },
             {
                 "id": "89f09153-83d8-4285-9fc7-67fb56b8ff79",
                 "issue_number": "2ον Τεύχος",
                 "date_published": "7 Μαρτίου 1926",
+                "pages_number": None,
             },
         ],
     }

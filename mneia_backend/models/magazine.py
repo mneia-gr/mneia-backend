@@ -26,6 +26,7 @@ class Magazine(abstract.Model):
                     "id": str(issue.id),
                     "issue_number": issue.issue_number,
                     "date_published": format_date(issue.date_published, format="long", locale="el_GR"),
+                    "pages_number": issue.pages_number,
                 }
             )
         return _
