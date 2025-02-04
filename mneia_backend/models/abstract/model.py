@@ -100,14 +100,18 @@ class Model(models.Model):
         """
         Export an instance as YAML for processing by Jekyll. Note that `as_yaml` is different by model, and many models
         don't have it at all.
+
+        TODO: This is awkward, mixing data and logic... part of the HTML DOM is here, and part is in Jekyll templates...
         """
         if not hasattr(self, "as_yaml"):
             return
-        yaml_export = f"---\n{yaml.dump(self.as_yaml, allow_unicode=True)}---\n"
+        yaml_export = f"---\n{yaml.dump(self.as_yaml, allow_unicode=True)}---\n\n"
         if self.content is not None:
-            yaml_export = yaml_export + f"\n{markdown2.markdown(self.content)}\n"
+            yaml_export += f'<main class="content" itemprop="text">\n{markdown2.markdown(self.content)}</main>\n'
         if self.notes is not None:
-            yaml_export = yaml_export + f"\n<h2>Σημειώσεις</h2>\n\n{markdown2.markdown(self.notes)}\n"
+            yaml_export += '<section class="notes">\n'
+            yaml_export += f"<h2>Σημειώσεις</h2>\n\n{markdown2.markdown(self.notes)}"
+            yaml_export += "</section>\n"
         self.yaml_export_dir.mkdir(parents=True, exist_ok=True)
         self.yaml_export_file.write_text("".join(yaml_export))
 
