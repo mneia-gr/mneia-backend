@@ -150,6 +150,7 @@ def test_person_yaml_export_without_content(mock_yaml_export_dir, mock_yaml_expo
         "      name: 'Ελληνικές δόξες: Η κ. ΚΥΒΕΛΗ ΘΕΟΔΩΡΙΔΟΥ εις την «Τρίμορφη Γυναίκα»'\n"
         "  works: []\n"
         "name: Κυβέλη\n"
+        "title: Κυβέλη\n"
         "---\n\n"
     )
 
@@ -176,6 +177,7 @@ def test_person_yaml_export_with_content(mock_yaml_export_dir, mock_yaml_export_
         "      name: 'Ελληνικές δόξες: Η κ. ΚΥΒΕΛΗ ΘΕΟΔΩΡΙΔΟΥ εις την «Τρίμορφη Γυναίκα»'\n"
         "  works: []\n"
         "name: Κυβέλη\n"
+        "title: Κυβέλη\n"
         "---\n"
         "\n"
         '<main class="content" itemprop="text">\n'
@@ -271,6 +273,7 @@ def test_person_yaml_export_with_notes(mock_yaml_export_dir, mock_yaml_export_fi
         "      name: 'Ελληνικές δόξες: Η κ. ΚΥΒΕΛΗ ΘΕΟΔΩΡΙΔΟΥ εις την «Τρίμορφη Γυναίκα»'\n"
         "  works: []\n"
         "name: Κυβέλη\n"
+        "title: Κυβέλη\n"
         "---\n"
         "\n"
         '<section class="notes">\n'

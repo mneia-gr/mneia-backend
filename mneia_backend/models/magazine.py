@@ -19,7 +19,7 @@ class Magazine(abstract.Model):
 
     @property
     def as_yaml(self) -> Dict:
-        _ = {"name": self.name, "issues": []}
+        _ = {"name": self.name, "title": self.name, "issues": []}
         for issue in self.issues.all():
             _["issues"].append(
                 {

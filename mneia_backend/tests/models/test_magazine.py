@@ -14,6 +14,7 @@ def test_magazine_as_yaml():
     magazine = Magazine.objects.get(id="0e609d69-f994-4930-8812-b188175f35d1")
     assert magazine.as_yaml == {
         "name": "Μεγάλη Ελληνική Εγκυκλοπαίδεια",
+        "title": "Μεγάλη Ελληνική Εγκυκλοπαίδεια",
         "issues": [
             {
                 "id": "49323bf2-767c-4812-b07a-f71a596b15e5",

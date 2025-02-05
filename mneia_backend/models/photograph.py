@@ -18,6 +18,7 @@ class Photograph(abstract.Model):
     def as_yaml(self) -> Dict:
         return {
             "name": self.name,
+            "title": self.name,
             "description": self.description,
             "references": {
                 "magazine_issues": [

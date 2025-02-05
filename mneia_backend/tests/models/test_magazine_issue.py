@@ -13,6 +13,7 @@ def test_magazine_issue_str():
 def test_magazine_issue_as_yaml():
     magazine = MagazineIssue.objects.get(id="49323bf2-767c-4812-b07a-f71a596b15e5")  # from fixture
     assert magazine.as_yaml == {
+        "title": "1ον Τεύχος - Μεγάλη Ελληνική Εγκυκλοπαίδεια",
         "issue_number": "1ον Τεύχος",
         "date_published": "28 Φεβρουαρίου 1926",
         "pages_number": 8,

@@ -78,6 +78,7 @@ class Person(abstract.Model):
     def as_yaml(self) -> Dict:
         return {
             "name": self.name,
+            "title": self.name,
             "links": {
                 "photographs": [
                     link_to_photograph.as_link_to_photograph for link_to_photograph in self.links_to_photographs.all()

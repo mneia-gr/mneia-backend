@@ -31,6 +31,7 @@ class MagazineIssue(abstract.Model):
     @property
     def as_yaml(self) -> Dict:
         return {
+            "title": f"{self.issue_number} - {self.magazine.name}",
             "issue_number": self.issue_number,
             "date_published": format_date(self.date_published, format="long", locale="el_GR"),
             "pages_number": self.pages_number,

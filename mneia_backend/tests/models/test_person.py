@@ -47,6 +47,7 @@ def test_person_api_import():
 def test_person_as_yaml():
     person = Person.objects.get(id="63eec1f5-f535-46a0-9fd3-6826a4f09e5c")  # from fixture
     assert person.as_yaml == {
+        "title": "Κυβέλη",
         "name": "Κυβέλη",
         "links": {
             "photographs": [
