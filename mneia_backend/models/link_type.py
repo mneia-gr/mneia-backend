@@ -44,7 +44,7 @@ class LinkType(abstract.Model):
     """
 
     mbid = models.IntegerField("MBID", null=True)  # optional, because there are link types specific to Mneia
-    parent = models.ForeignKey("self", null=True, on_delete=models.PROTECT)
+    parent = models.ForeignKey("self", null=True, blank=True, on_delete=models.PROTECT)
     child_order = models.IntegerField("Child Order", default=0)
     entity_type0 = models.CharField("Entity Type 0", max_length=50, choices=ENTITY_0_CHOICES)
     entity_type1 = models.CharField("Entity Type 1", max_length=50, choices=ENTITY_1_CHOICES)
@@ -127,12 +127,13 @@ class LinkTypeAdmin(admin.ModelAdmin):
         "link_phrase",
         "reverse_link_phrase",
         "long_link_phrase",
+        "parent",
     ]
 
     readonly_fields = [
+        "parent",
         "id",
         "mbid",
-        "parent",
         "child_order",
         "is_deprecated",
         "has_dates",

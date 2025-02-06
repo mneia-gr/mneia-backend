@@ -8,4 +8,5 @@ python -m build
 
 python -m pip install dist/mneia_backend-*-py3-none-any.whl
 
-# sudo systemctl reload apache2.service
+sudo systemctl reload apache2.service
+

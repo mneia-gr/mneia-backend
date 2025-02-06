@@ -29,6 +29,7 @@ def test_work_as_yaml():
     work = Work.objects.get(id="4adcfb27-8f2a-4122-8906-93ff18a3b9dc")  # from fixture
     assert work.as_yaml == {
         "name": "Από το «Καπρίς»",
+        "title": "Από το «Καπρίς»",
         "links": {
             "people": [
                 {
