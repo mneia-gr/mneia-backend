@@ -1,6 +1,28 @@
 [
     {
         "__COMMENTS__": [
+            "This Link is of type 'author', between a Book and a Person, where the person is the author of the Book."
+        ],
+        "model": "mneia_backend.link",
+        "pk": "1453ec55-c3f8-49e7-aeae-e59a84f96a4f",
+        "fields": {
+            "attribute_count": 0,
+            "begin_date_day": null,
+            "begin_date_month": null,
+            "begin_date_year": null,
+            "created": "2025-02-08 10:17:26.050651+00:00",
+            "created_in_mneia": "2025-02-08 10:17:26.050565+00:00",
+            "end_date_day": null,
+            "end_date_month": null,
+            "end_date_year": null,
+            "ended": false,
+            "link_type": "e6bee49c-74d0-4417-aa28-393f87950ba7",
+            "mbid": null,
+            "updated_in_mneia": "2025-02-08 10:17:26.050592+00:00"
+        }
+    },
+    {
+        "__COMMENTS__": [
             "This Link is of type 'subject', between a 'Person' and a 'Photograph', where the Person is the subject of",
             "the Photograph. It has no link attributes. MBID is null because this is specific to Mneia."
         ],

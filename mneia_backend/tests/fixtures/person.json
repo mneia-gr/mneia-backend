@@ -48,5 +48,30 @@
             "sort_name": "Sylvios",
             "updated_in_mneia": "2025-01-28 19:18:58.670142+00:00"
         }
+    },
+    {
+        "model": "mneia_backend.person",
+        "pk": "20ea77bb-0924-4380-b7ef-2740d4126576",
+        "fields": {
+            "area": "803db0ca-b6ed-3bbc-aeb8-f89efd0a2168",
+            "begin_area": null,
+            "begin_date_day": null,
+            "begin_date_month": null,
+            "begin_date_year": null,
+            "comment": "",
+            "created_in_mneia": "2025-02-08 13:33:09.324680+00:00",
+            "edits_pending": 0,
+            "end_area": null,
+            "end_date_day": null,
+            "end_date_month": null,
+            "end_date_year": null,
+            "ended": false,
+            "gender": "36d3d30a-839d-3eda-8cb3-29be4384e4a9",
+            "last_updated": "2025-02-08 13:33:09.324777+00:00",
+            "mbid": null,
+            "name": "Γιάννης Σολδάτος",
+            "sort_name": "Soldatos, Giannis",
+            "updated_in_mneia": "2025-02-08 13:33:09.324706+00:00"
+          }
     }
 ]

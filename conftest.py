@@ -50,6 +50,7 @@ def _load_test_fixtures(django_db_blocker):
         "link-magazine-issue-work",  # depends on link, magazine-issue and work
         "book-format",
         "book",  # depends on book-format
+        "link-book-person",  # depends on link, book, and person
     ]
     with django_db_blocker.unblock():
         for fixture in fixtures:

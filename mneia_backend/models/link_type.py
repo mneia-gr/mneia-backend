@@ -8,11 +8,13 @@ from rest_framework.response import Response
 from mneia_backend.models import abstract
 
 ENTITY_0_CHOICES = [
+    ("book", "book"),
     ("person", "person"),
     ("magazine_issue", "magazine_issue"),
 ]
 
 ENTITY_1_CHOICES = [
+    ("person", "person"),
     ("photograph", "photograph"),
     ("work", "work"),
 ]

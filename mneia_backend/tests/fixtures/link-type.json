@@ -1,6 +1,32 @@
 [
     {
         "__COMMENT__": [
+            "This LinkType is used to link a Book to a Person, where the Person is the author of the Book."
+        ],
+        "model": "mneia_backend.linktype",
+        "pk": "e6bee49c-74d0-4417-aa28-393f87950ba7",
+        "fields": {
+            "child_order": 0,
+            "created_in_mneia": "2025-02-08 10:16:59.395878+00:00",
+            "description": "This is used to Link a Book to a Person, where the Person is the author of the Book.",
+            "entity0_cardinality": 0,
+            "entity1_cardinality": 0,
+            "entity_type0": "book",
+            "entity_type1": "person",
+            "has_dates": true,
+            "is_deprecated": false,
+            "last_updated": "2025-02-08 10:16:59.395928+00:00",
+            "link_phrase": "authored by",
+            "long_link_phrase": "was authored by",
+            "mbid": null,
+            "name": "author",
+            "parent": null,
+            "reverse_link_phrase": "is the author of",
+            "updated_in_mneia": "2025-02-08 10:16:59.395893+00:00"
+        }
+    },
+    {
+        "__COMMENT__": [
             "This LinkType is used to link a person to a photograph, in which the person is the subject of the",
             "photograph. MBID is null because this is specific to Mneia, not imported from MusicBrainz."
         ],
@@ -58,7 +84,7 @@
             "This LinkType is used to link a Magazine Issue to a Photograph, where the Photograph has been published",
             "in that Magazine Issue.",
             "NOTE!!! The MBID here is fake, used for testing only.",
-            "TODO!!! Removed this fake MBID and replace with a 'real' fixture when more models are added."
+            "TODO!!! Remove this fake MBID and replace with a 'real' fixture when more models are added."
         ],
         "model": "mneia_backend.linktype",
         "pk": "4225bcd7-1cb3-48fe-848a-e5e7457a8b2a",
