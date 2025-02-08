@@ -84,6 +84,7 @@ class Person(abstract.Model):
                     link_to_photograph.as_link_to_photograph for link_to_photograph in self.links_to_photographs.all()
                 ],
                 "works": [link_to_work.as_link_to_work for link_to_work in self.links_to_works.all()],
+                "books": [link_to_book.as_link_to_book for link_to_book in self.links_to_books.all()],
             },
         }
 

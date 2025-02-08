@@ -20,4 +20,15 @@ def test_book_as_yaml():
         "isbn": "9603221384",
         "pages_number": 302,
         "publication_date_year": 2000,
+        "links": {
+            "people": [
+                {
+                    "link_phrase": "was authored by",
+                    "person": {
+                        "id": "20ea77bb-0924-4380-b7ef-2740d4126576",
+                        "name": "Γιάννης Σολδάτος",
+                    },
+                },
+            ],
+        },
     }

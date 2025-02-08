@@ -32,6 +32,7 @@ class Book(abstract.Model):
             "isbn": self.isbn,
             "pages_number": self.pages_number,
             "publication_date_year": self.publication_date_year,
+            "links": {"people": [link_to_person.as_link_to_person for link_to_person in self.links_to_people.all()]},
         }
 
     class Meta:

@@ -60,5 +60,6 @@ def test_person_as_yaml():
                 }
             ],
             "works": [],
+            "books": [],
         },
     }

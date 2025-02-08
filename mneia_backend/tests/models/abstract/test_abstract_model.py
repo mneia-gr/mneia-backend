@@ -143,6 +143,7 @@ def test_person_yaml_export_without_content(mock_yaml_export_dir, mock_yaml_expo
     mock_yaml_export_file.write_text.assert_called_once_with(
         "---\n"
         "links:\n"
+        "  books: []\n"
         "  photographs:\n"
         "  - link_phrase: is the subject of\n"
         "    photograph:\n"
@@ -170,6 +171,7 @@ def test_person_yaml_export_with_content(mock_yaml_export_dir, mock_yaml_export_
     mock_yaml_export_file.write_text.assert_called_once_with(
         "---\n"
         "links:\n"
+        "  books: []\n"
         "  photographs:\n"
         "  - link_phrase: is the subject of\n"
         "    photograph:\n"
@@ -266,6 +268,7 @@ def test_person_yaml_export_with_notes(mock_yaml_export_dir, mock_yaml_export_fi
     mock_yaml_export_file.write_text.assert_called_once_with(
         "---\n"
         "links:\n"
+        "  books: []\n"
         "  photographs:\n"
         "  - link_phrase: is the subject of\n"
         "    photograph:\n"
