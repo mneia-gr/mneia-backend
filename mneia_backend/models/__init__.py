@@ -1,5 +1,6 @@
 from mneia_backend.models.area import Area
 from mneia_backend.models.area_type import AreaType
+from mneia_backend.models.book import Book
 from mneia_backend.models.book_format import BookFormat
 from mneia_backend.models.gender import Gender
 from mneia_backend.models.link import Link
@@ -22,6 +23,7 @@ from mneia_backend.models.work_type import WorkType
 __all__ = [
     "Area",
     "AreaType",
+    "Book",
     "BookFormat",
     "Gender",
     "Link",
