@@ -2,11 +2,12 @@
 
 python -m pip uninstall --yes mneia-backend
 
-rm dist/*
-
 python -m build
 
 python -m pip install dist/mneia_backend-*-py3-none-any.whl
+
+rm -vrf mneia_backend.egg-info
+rm -v dist/*
 
 sudo systemctl reload apache2.service
 

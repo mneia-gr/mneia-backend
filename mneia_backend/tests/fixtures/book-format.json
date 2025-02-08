@@ -1,0 +1,16 @@
+[
+    {
+        "model": "mneia_backend.bookformat",
+        "pk": "78a2d4eb-0794-48bd-ad88-735413aa5395",
+        "fields": {
+            "child_order": 0,
+            "created_in_mneia": "2025-02-08 09:42:47.611183+00:00",
+            "description": "",
+            "greek_name": null,
+            "mbid": null,
+            "name": "Paperback",
+            "parent": null,
+            "updated_in_mneia": "2025-02-08 09:42:47.611201+00:00"
+        }
+    }
+]
