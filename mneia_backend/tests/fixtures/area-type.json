@@ -13,6 +13,19 @@
       }
     },
     {
+      "model": "mneia_backend.areatype",
+      "pk": "6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+      "fields": {
+        "child_order": 3,
+        "created_in_mneia": "2025-02-09 08:46:17.915368+00:00",
+        "description": "City is used for settlements of any size, including towns and villages.",
+        "mbid": 3,
+        "name": "City",
+        "parent": null,
+        "updated_in_mneia": "2025-02-09 08:46:17.915383+00:00"
+      }
+    },
+    {
       "model": "django_musicbrainz_connector.areatype",
       "pk": 1,
       "fields": {
@@ -24,14 +37,17 @@
       }
     },
     {
+      "__COMMENTS__": [
+        "The value of 'parent' here is FAKE, only used to unit-test importing an AreaType that has a parent."
+      ],
       "model": "django_musicbrainz_connector.areatype",
-      "pk": 3,
+      "pk": 2,
       "fields": {
-        "name": "City",
+        "name": "Subdivision",
         "parent": 1,
-        "child_order": 3,
-        "description": "City is used for settlements of any size, including towns and villages.",
-        "gid": "6fd8f29a-3d0a-32fc-980d-ea697b69da78"
+        "child_order": 2,
+        "description": "Subdivision is used for the main administrative divisions of a country, e.g. California, Ontario, Okinawa. These are considered when displaying the parent areas for a given area.",
+        "gid": "fd3d44c5-80a1-3842-9745-2c4972d35afa"
       }
     }
 ]

@@ -51,6 +51,8 @@ def _load_test_fixtures(django_db_blocker):
         "book-format",
         "book",  # depends on book-format
         "link-book-person",  # depends on link, book, and person
+        "publisher",
+        "link-book-publisher",  # depends on link, book, and publisher
     ]
     with django_db_blocker.unblock():
         for fixture in fixtures:

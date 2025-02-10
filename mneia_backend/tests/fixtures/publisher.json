@@ -1,0 +1,11 @@
+[
+    {
+        "model": "mneia_backend.publisher",
+        "pk": "1526d9b4-cd45-4790-83c4-a7f92bbc80c4",
+        "fields": {
+            "created_in_mneia": "2025-02-09 07:22:37.328897+00:00",
+            "name": "Εκδόσεις Αιγόκερως",
+            "updated_in_mneia": "2025-02-09 07:22:37.328954+00:00"
+        }
+    }
+]

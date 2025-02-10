@@ -23,9 +23,10 @@ class Area(abstract.Model):
     end_date_day = models.SmallIntegerField("End Date Day", null=True)
     ended = models.BooleanField("Ended?", default=False)
     comment = models.CharField(max_length=255, default="")
+    greek_name = models.CharField("Greek Name", max_length=255, null=True, blank=True)
 
     def __str__(self) -> str:
-        return self.name
+        return self.greek_name or self.name
 
     class Meta:
         verbose_name_plural = "Areas"
@@ -83,7 +84,8 @@ class AreaViewSet(viewsets.ModelViewSet):
 
 @admin.register(Area)
 class AreaAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Area._meta.fields]
+    list_display = ["name", "greek_name", "mbid", "type", "comment"]
 
-    # For now, all fields are read-only in Admin, because all Areas come from MusicBrainz:
+    # All fields except 'greek_name' are read-only in Admin, because all Areas come from MusicBrainz:
     readonly_fields = [field.name for field in Area._meta.fields]
+    readonly_fields.remove("greek_name")

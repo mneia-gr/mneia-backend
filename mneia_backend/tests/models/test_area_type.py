@@ -27,15 +27,15 @@ def test_area_type_import_from_musicbrainz_new_area_type():
     """
     api_client = APIClient()
 
-    response = api_client.get("/area-types/6fd8f29a-3d0a-32fc-980d-ea697b69da78/")
-    assert response.status_code == 404  # assert that the Area Type "City" does not already exist before we import it
+    response = api_client.get("/area-types/fd3d44c5-80a1-3842-9745-2c4972d35afa/")
+    assert response.status_code == 404  # assert that the AreaType "Subdivision" does not already exist before importing
 
-    response = api_client.post("/area-types/import/", data={"mbid": 3})
+    response = api_client.post("/area-types/import/", data={"mbid": 2})
     assert response.status_code == 200  # import succeeded
 
-    response = api_client.get("/area-types/6fd8f29a-3d0a-32fc-980d-ea697b69da78/")
+    response = api_client.get("/area-types/fd3d44c5-80a1-3842-9745-2c4972d35afa/")
     assert response.status_code == 200  # the Area Type exists after we import it
 
-    # The Area Type "City" has a parent in MusicBrainz so it should have one in Mneia. This is only here for testing,
-    # as the "City" object in MusicBrainz does not actually have a parent:
+    # The AreaType "Subdivision" has a parent in the test fixture so it should have one in Mneia. This is only here for
+    # testing, as the "Subdivision" object in MusicBrainz does not actually have a parent:
     assert response.data["parent"] == uuid.UUID("06dd0ae4-8c74-30bb-b43d-95dcedf961de")

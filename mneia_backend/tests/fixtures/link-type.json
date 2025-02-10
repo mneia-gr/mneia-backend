@@ -1,6 +1,6 @@
 [
     {
-        "__COMMENT__": [
+        "__COMMENTS__": [
             "This LinkType is used to link a Book to a Person, where the Person is the author of the Book."
         ],
         "model": "mneia_backend.linktype",
@@ -26,7 +26,33 @@
         }
     },
     {
-        "__COMMENT__": [
+        "__COMMENTS__": [
+            "This LinkType is used to link a Book to a Publisher, where the Book was published by that Publisher."
+        ],
+        "model": "mneia_backend.linktype",
+        "pk": "ea12adee-ed90-4010-8cc6-40dec575d13f",
+        "fields": {
+            "child_order": 0,
+            "created_in_mneia": "2025-02-09 07:30:27.140505+00:00",
+            "description": "This is used to link a Book to a Publisher, where the Book was published by the Publisher.",
+            "entity0_cardinality": 0,
+            "entity1_cardinality": 0,
+            "entity_type0": "book",
+            "entity_type1": "publisher",
+            "has_dates": true,
+            "is_deprecated": false,
+            "last_updated": "2025-02-09 07:30:27.140554+00:00",
+            "link_phrase": "published by",
+            "long_link_phrase": "was published by",
+            "mbid": null,
+            "name": "publication",
+            "parent": null,
+            "reverse_link_phrase": "published",
+            "updated_in_mneia": "2025-02-09 07:30:27.140520+00:00"
+        }
+    },
+    {
+        "__COMMENTS__": [
             "This LinkType is used to link a person to a photograph, in which the person is the subject of the",
             "photograph. MBID is null because this is specific to Mneia, not imported from MusicBrainz."
         ],
@@ -53,7 +79,7 @@
         }
     },
     {
-        "__COMMENT__": [
+        "__COMMENTS__": [
             "This LinkType is used to link a person to a work, where the person is the author of the work. MBID is",
             "null because this is specific to Mneia, not imported from MusicBrainz."
         ],
@@ -80,7 +106,7 @@
         }
     },
     {
-        "__COMMENT__": [
+        "__COMMENTS__": [
             "This LinkType is used to link a Magazine Issue to a Photograph, where the Photograph has been published",
             "in that Magazine Issue.",
             "NOTE!!! The MBID here is fake, used for testing only.",
@@ -109,7 +135,7 @@
         }
     },
     {
-        "__COMMENT__": [
+        "__COMMENTS__": [
             "NOTE!!! The GID here is fake, made to match one of the LinkType fixtures from Mneia.",
             "TODO!!! Replace this with a 'real' fixture later."
         ],

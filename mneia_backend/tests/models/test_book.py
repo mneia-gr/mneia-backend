@@ -15,7 +15,7 @@ def test_book_as_yaml():
     assert book.as_yaml == {
         "name": "Ένας άνθρωπος παντός καιρού",
         "title": "Ένας άνθρωπος παντός καιρού",
-        "edition": "2η έκδοση",
+        "edition": "Β Έκδοση",
         "format": "Paperback",
         "isbn": "9603221384",
         "pages_number": 302,

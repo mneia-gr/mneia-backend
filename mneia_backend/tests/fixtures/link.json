@@ -23,6 +23,29 @@
     },
     {
         "__COMMENTS__": [
+            "This Link is of type 'publication', between a Book and a Publisher, where the Book was published by that",
+            "Publisher. It has no attributes."
+        ],
+        "model": "mneia_backend.link",
+        "pk": "8bb20adb-3efb-4734-a1d0-7746a3f2b380",
+        "fields": {
+            "attribute_count": 0,
+            "begin_date_day": null,
+            "begin_date_month": null,
+            "begin_date_year": null,
+            "created": "2025-02-09 07:30:47.739497+00:00",
+            "created_in_mneia": "2025-02-09 07:30:47.739409+00:00",
+            "end_date_day": null,
+            "end_date_month": null,
+            "end_date_year": null,
+            "ended": false,
+            "link_type": "ea12adee-ed90-4010-8cc6-40dec575d13f",
+            "mbid": null,
+            "updated_in_mneia": "2025-02-09 07:30:47.739437+00:00"
+        }
+    },
+    {
+        "__COMMENTS__": [
             "This Link is of type 'subject', between a 'Person' and a 'Photograph', where the Person is the subject of",
             "the Photograph. It has no link attributes. MBID is null because this is specific to Mneia."
         ],
