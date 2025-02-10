@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Optional
 
 from django.contrib import admin
 from django.db import models
@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from mneia_backend.models import abstract
 from mneia_backend.models.area import Area
 from mneia_backend.models.gender import Gender
+from mneia_backend.utils import prettify_date
 
 
 class Person(abstract.Model):
@@ -71,6 +72,14 @@ class Person(abstract.Model):
         related_name="people_end_area",
     )
     reference_name = models.CharField("Reference Name", max_length=255)
+
+    @property
+    def begin_date(self) -> Optional[str]:
+        return prettify_date(self.begin_date_year, self.begin_date_month, self.begin_date_day)
+
+    @property
+    def end_date(self) -> Optional[str]:
+        return prettify_date(self.end_date_year, self.end_date_month, self.end_date_day)
 
     def __str__(self) -> str:
         return self.name
@@ -165,6 +174,6 @@ class PersonViewSet(viewsets.ModelViewSet):
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Person._meta.fields]
+    list_display = ["name", "sort_name", "reference_name", "mbid", "begin_date", "end_date", "area", "gender", "ended"]
 
     readonly_fields = ["id", "mbid", "edits_pending", "last_updated"]

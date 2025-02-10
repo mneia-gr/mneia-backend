@@ -1,14 +1,13 @@
-from datetime import date
 from typing import Dict, Optional
 
 import rest_framework
-from babel.dates import format_skeleton
 from django.contrib import admin
 from django.db import models
 
 from mneia_backend.models import abstract
 from mneia_backend.models.link_type import LinkType
 from mneia_backend.models.links.book_person import LinkBookPerson
+from mneia_backend.utils import prettify_date
 
 
 class Book(abstract.Model):
@@ -29,23 +28,7 @@ class Book(abstract.Model):
 
     @property
     def publication_date(self) -> Optional[str]:
-        """Returns a pretty publication date for rendering."""
-        if (  # only the YEAR is known:
-            self.publication_date_year is not None
-            and self.publication_date_month is None
-            and self.publication_date_day is None
-        ):
-            return str(self.publication_date_year)
-        elif (  # only the YEAR and MONTH are known:
-            self.publication_date_year is not None
-            and self.publication_date_month is not None
-            and self.publication_date_day is None
-        ):
-            return format_skeleton(
-                "MMMM y", date(self.publication_date_year, self.publication_date_month, 1), locale="el_GR"
-            )
-        else:  # publication date is not known:
-            return None
+        return prettify_date(self.publication_date_year, self.publication_date_month, self.publication_date_day)
 
     @property
     def as_yaml(self) -> Dict:
