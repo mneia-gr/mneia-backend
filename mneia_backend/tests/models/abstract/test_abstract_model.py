@@ -68,14 +68,19 @@ def test_area_type_data_dir(mock_path_home):
 def test_area_type_as_json():
     area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
     assert area_type.as_json == {
-        "id": "06dd0ae4-8c74-30bb-b43d-95dcedf961de",
-        "mbid": 1,
-        "name": "Country",
-        "parent": None,
-        "child_order": 1,
-        "description": "Country is used for areas included (or previously included) in ISO 3166-1, e.g. United States.",
-        "created_in_mneia": "2025-01-10 13:42:00+00:00",
-        "updated_in_mneia": "2025-01-10 13:42:00+00:00",
+        "model": "mneia_backend.areatype",
+        "pk": "06dd0ae4-8c74-30bb-b43d-95dcedf961de",
+        "fields": {
+            "mbid": 1,
+            "name": "Country",
+            "parent": None,
+            "child_order": 1,
+            "description": (
+                "Country is used for areas included (or previously included) in ISO 3166-1, e.g. United States."
+            ),
+            "created_in_mneia": "2025-01-10 13:42:00+00:00",
+            "updated_in_mneia": "2025-01-10 13:42:00+00:00",
+        },
     }
 
 
@@ -88,10 +93,20 @@ def test_area_type_json_export(mock_data_dir, mock_json_export_file):
 
     mock_data_dir.mkdir.assert_called_once_with(parents=True, exist_ok=True)
     mock_json_export_file.write_text.assert_called_once_with(
-        '{\n  "child_order": 1,\n  "created_in_mneia": "2025-01-10 13:42:00+00:00",\n  "description": '
-        '"Country is used for areas included (or previously included) in ISO 3166-1, e.g. United States.",\n  '
-        '"id": "06dd0ae4-8c74-30bb-b43d-95dcedf961de",\n  "mbid": 1,\n  "name": "Country",\n  "parent": null,\n  '
-        '"updated_in_mneia": "2025-01-10 13:42:00+00:00"\n}'
+        "{\n"
+        '  "fields": {\n'
+        '    "child_order": 1,\n'
+        '    "created_in_mneia": "2025-01-10 13:42:00+00:00",\n'
+        '    "description": "Country is used for areas included (or previously included) in ISO 3166-1, e.g. United '
+        'States.",\n'
+        '    "mbid": 1,\n'
+        '    "name": "Country",\n'
+        '    "parent": null,\n'
+        '    "updated_in_mneia": "2025-01-10 13:42:00+00:00"\n'
+        "  },\n"
+        '  "model": "mneia_backend.areatype",\n'
+        '  "pk": "06dd0ae4-8c74-30bb-b43d-95dcedf961de"\n'
+        "}"
     )
 
 

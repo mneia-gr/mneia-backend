@@ -8,6 +8,8 @@ import yaml
 from django.db import models
 from django.utils.text import slugify
 
+from mneia_backend.apps import MneiaBackendConfig
+
 
 class Model(models.Model):
     """
@@ -61,22 +63,32 @@ class Model(models.Model):
 
     @property
     def as_json(self) -> Dict:
-        """A representation of an instance as a dictionary, as it will be exported to JSON."""
-        _as_json = {}
+        """
+        A representation of an instance as a dictionary, as it will be exported to JSON. This is formatted the same way
+        that management command `dumpdata` formats instances, and the same way that text fixtures are formatted. These
+        exported JSON files could be imported back into the database in case of catastrophic failure.
+        """
+        _as_json = {
+            "model": f"{MneiaBackendConfig.name}.{self.__class__.__name__.lower()}",
+            "pk": str(self.id),
+            "fields": {},
+        }
         for field in self._meta.fields:
+            if field.name == "id":
+                continue
             if (
                 isinstance(field, models.UUIDField)
                 or isinstance(field, models.DateTimeField)
                 or isinstance(field, models.DateField)
             ):
                 # convert UUIDs and dates to strings:
-                _as_json[field.name] = str(getattr(self, field.name))
+                _as_json["fields"][field.name] = str(getattr(self, field.name))
             elif isinstance(field, models.ForeignKey):
                 # convert foreign keys to the string ID of the related instance:
                 related_instance = getattr(self, field.name)
-                _as_json[field.name] = str(related_instance.id) if related_instance is not None else None
+                _as_json["fields"][field.name] = str(related_instance.id) if related_instance is not None else None
             else:
-                _as_json[field.name] = getattr(self, field.name)
+                _as_json["fields"][field.name] = getattr(self, field.name)
         return _as_json
 
     def export_json(self) -> None:
