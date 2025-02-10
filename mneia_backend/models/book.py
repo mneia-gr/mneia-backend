@@ -1,6 +1,8 @@
-from typing import Dict
+from datetime import date
+from typing import Dict, Optional
 
 import rest_framework
+from babel.dates import format_skeleton
 from django.contrib import admin
 from django.db import models
 
@@ -26,6 +28,26 @@ class Book(abstract.Model):
         return self.name
 
     @property
+    def publication_date(self) -> Optional[str]:
+        """Returns a pretty publication date for rendering."""
+        if (  # only the YEAR is known:
+            self.publication_date_year is not None
+            and self.publication_date_month is None
+            and self.publication_date_day is None
+        ):
+            return str(self.publication_date_year)
+        elif (  # only the YEAR and MONTH are known:
+            self.publication_date_year is not None
+            and self.publication_date_month is not None
+            and self.publication_date_day is None
+        ):
+            return format_skeleton(
+                "MMMM y", date(self.publication_date_year, self.publication_date_month, 1), locale="el_GR"
+            )
+        else:  # publication date is not known:
+            return None
+
+    @property
     def as_yaml(self) -> Dict:
         return {
             "name": self.name,
@@ -34,7 +56,7 @@ class Book(abstract.Model):
             "format": self.format.name,
             "isbn": self.isbn,
             "pages_number": self.pages_number,
-            "publication_date_year": self.publication_date_year,
+            "publication_date": self.publication_date,
             "links": {"people": [link_to_person.as_link_to_person for link_to_person in self.links_to_people.all()]},
             "references": {
                 "publishers": [link_to_publisher.as_reference for link_to_publisher in self.links_to_publishers.all()],

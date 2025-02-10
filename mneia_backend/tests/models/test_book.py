@@ -9,6 +9,20 @@ def test_book_str():
     assert str(book) == "Ένας άνθρωπος παντός καιρού"
 
 
+@pytest.mark.parametrize(
+    "year, month, day, expected",
+    [
+        (None, None, None, None),
+        (2007, None, None, "2007"),
+        (2007, 1, None, "Ιανουάριος 2007"),
+    ],
+)
+@pytest.mark.django_db
+def test_book_publication_date(year, month, day, expected):
+    book = Book(publication_date_year=year, publication_date_month=month, publication_date_day=day)
+    assert book.publication_date == expected
+
+
 @pytest.mark.django_db
 def test_book_as_yaml():
     book = Book.objects.get(id="f979c381-dd7b-4e8f-9b71-6ca6c6507927")
@@ -19,7 +33,7 @@ def test_book_as_yaml():
         "format": "Paperback",
         "isbn": "9603221384",
         "pages_number": 302,
-        "publication_date_year": 2000,
+        "publication_date": "2000",
         "links": {
             "people": [
                 {
@@ -40,7 +54,7 @@ def test_book_as_yaml():
                         "edition": "Β Έκδοση",
                         "id": "f979c381-dd7b-4e8f-9b71-6ca6c6507927",
                         "name": "Ένας άνθρωπος παντός καιρού",
-                        "publication_date_year": 2000,
+                        "publication_date": "2000",
                     },
                     "publisher": {"id": "1526d9b4-cd45-4790-83c4-a7f92bbc80c4", "name": "Εκδόσεις Αιγόκερως"},
                 }
