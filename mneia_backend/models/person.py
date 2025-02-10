@@ -70,6 +70,7 @@ class Person(abstract.Model):
         on_delete=models.PROTECT,
         related_name="people_end_area",
     )
+    reference_name = models.CharField("Reference Name", max_length=255)
 
     def __str__(self) -> str:
         return self.name

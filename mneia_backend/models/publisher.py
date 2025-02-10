@@ -18,7 +18,14 @@ class Publisher(abstract.Model):
 
     @property
     def as_yaml(self) -> Dict:
-        _ = {"name": self.name, "title": self.name}
+        _ = {
+            "name": self.name,
+            "title": self.name,
+            "references": {
+                "books": [link_to_book.as_reference for link_to_book in self.links_to_books.all()],
+            },
+        }
+
         return _
 
     class Meta:

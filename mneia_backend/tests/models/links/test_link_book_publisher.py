@@ -38,7 +38,7 @@ def test_link_book_publisher_as_reference():
             "authors": [
                 {
                     "id": "20ea77bb-0924-4380-b7ef-2740d4126576",
-                    "name": "Γιάννης Σολδάτος",
+                    "name": "Σολδάτος, Γιάννης",
                 },
             ],
             "edition": "Β Έκδοση",

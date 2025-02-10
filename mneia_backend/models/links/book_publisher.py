@@ -57,7 +57,7 @@ class LinkBookPublisher(abstract.LinkModel):
             _["book"]["authors"].append(
                 {
                     "id": str(author.id),
-                    "name": author.name,
+                    "name": author.reference_name,
                 }
             )
 

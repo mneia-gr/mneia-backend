@@ -36,6 +36,9 @@ class Book(abstract.Model):
             "pages_number": self.pages_number,
             "publication_date_year": self.publication_date_year,
             "links": {"people": [link_to_person.as_link_to_person for link_to_person in self.links_to_people.all()]},
+            "references": {
+                "publishers": [link_to_publisher.as_reference for link_to_publisher in self.links_to_publishers.all()],
+            },
         }
 
     @property
