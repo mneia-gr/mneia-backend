@@ -130,9 +130,9 @@ class PersonViewSet(viewsets.ModelViewSet):
         id = request.data.get("id")
         mbid = request.data.get("mbid")
         name = request.data.get("name")
-        if id is not None:
+        if id not in [None, ""]:
             musicbrainz_artist = MusicBrainzArtist.objects.get(gid=id)
-        elif mbid is not None:
+        elif mbid not in [None, ""]:
             musicbrainz_artist = MusicBrainzArtist.objects.get(id=mbid)
         else:
             musicbrainz_artists = MusicBrainzArtist.objects.filter(name=name)
@@ -159,6 +159,7 @@ class PersonViewSet(viewsets.ModelViewSet):
                 },
                 status=status.HTTP_422_UNPROCESSABLE_ENTITY,
             )
+
         try:
             instance = Person.objects.get(mbid=musicbrainz_artist.id)  # do nothing if the Person already exists
         except Person.DoesNotExist:
