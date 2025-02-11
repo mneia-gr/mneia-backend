@@ -22,6 +22,7 @@ def test_publisher_as_yaml():
                         "area": "Αθήνα",
                         "authors": [{"id": "20ea77bb-0924-4380-b7ef-2740d4126576", "name": "Σολδάτος, Γιάννης"}],
                         "edition": "Β Έκδοση",
+                        "editors": [],
                         "id": "f979c381-dd7b-4e8f-9b71-6ca6c6507927",
                         "name": "Ένας άνθρωπος παντός καιρού",
                         "publication_date": "2000",

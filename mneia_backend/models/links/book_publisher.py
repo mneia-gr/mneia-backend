@@ -43,6 +43,7 @@ class LinkBookPublisher(abstract.LinkModel):
                 "id": str(self.book.id),
                 "name": self.book.name,
                 "authors": [],
+                "editors": [],
                 "edition": self.book.edition,
                 "area": str(self.book.area),
                 "publication_date": self.book.publication_date,
@@ -59,6 +60,14 @@ class LinkBookPublisher(abstract.LinkModel):
                 {
                     "id": str(author.id),
                     "name": author.reference_name,
+                }
+            )
+
+        for editor in self.book.editors:
+            _["book"]["editors"].append(
+                {
+                    "id": str(editor.id),
+                    "name": editor.reference_name,
                 }
             )
 

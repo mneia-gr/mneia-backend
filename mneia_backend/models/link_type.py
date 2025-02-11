@@ -143,3 +143,5 @@ class LinkTypeAdmin(admin.ModelAdmin):
         "entity0_cardinality",
         "entity1_cardinality",
     ]
+
+    list_filter = ["entity_type0", "entity_type1", "name"]

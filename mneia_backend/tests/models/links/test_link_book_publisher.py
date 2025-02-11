@@ -41,6 +41,7 @@ def test_link_book_publisher_as_reference():
                     "name": "Σολδάτος, Γιάννης",
                 },
             ],
+            "editors": [],
             "edition": "Β Έκδοση",
             "area": "Αθήνα",
             "isbn": "9603221384",

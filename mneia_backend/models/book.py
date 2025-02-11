@@ -56,6 +56,16 @@ class Book(abstract.Model):
         ]
         return [link_book_person.person for link_book_person in links_book_person]
 
+    @property
+    def editors(self):
+        """Returns the instances of Person that are the editors of this Book, if there are any."""
+        link_type = LinkType.objects.filter(entity_type0="book", entity_type1="person", name="editor").first()
+        links_book_person = LinkBookPerson.objects.filter(book=self)
+        links_book_person = [
+            link_book_person for link_book_person in links_book_person if link_book_person.link.link_type == link_type
+        ]
+        return [link_book_person.person for link_book_person in links_book_person]
+
     class Meta:
         verbose_name = "Book"
         verbose_name_plural = "Books"
