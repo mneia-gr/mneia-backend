@@ -57,6 +57,8 @@ class Book(abstract.Model):
         return [link_book_person.person for link_book_person in links_book_person]
 
     class Meta:
+        verbose_name = "Book"
+        verbose_name_plural = "Books"
         ordering = ["name"]
 
 
@@ -73,5 +75,5 @@ class BookViewSet(rest_framework.viewsets.ModelViewSet):
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Book._meta.fields]
+    list_display = ["name", "edition", "format", "isbn", "pages_number", "publication_date", "area"]
     readonly_fields = ["id", "created_in_mneia", "updated_in_mneia"]

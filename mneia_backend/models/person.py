@@ -127,8 +127,27 @@ class PersonViewSet(viewsets.ModelViewSet):
 
             {"mbid": 1}
         """
-        mbid = request.data["mbid"]
-        musicbrainz_artist = MusicBrainzArtist.objects.get(id=mbid)
+        id = request.data.get("id")
+        mbid = request.data.get("mbid")
+        name = request.data.get("name")
+        if id is not None:
+            musicbrainz_artist = MusicBrainzArtist.objects.get(gid=id)
+        elif mbid is not None:
+            musicbrainz_artist = MusicBrainzArtist.objects.get(id=mbid)
+        else:
+            musicbrainz_artists = MusicBrainzArtist.objects.filter(name=name)
+            if musicbrainz_artists.count() != 1:
+                return Response(
+                    {
+                        "Error": (
+                            f"Expected to find 1 MusicBrainz Artist by name '{name}' but found "
+                            f"{musicbrainz_artists.count()}"
+                        )
+                    },
+                    status=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                )
+            musicbrainz_artist = musicbrainz_artists.first()
+
         musicbrainz_artist_type_person = MusicBrainzArtistType.objects.get(name="Person")
         if musicbrainz_artist.type != musicbrainz_artist_type_person:
             return Response(
@@ -176,4 +195,36 @@ class PersonViewSet(viewsets.ModelViewSet):
 class PersonAdmin(admin.ModelAdmin):
     list_display = ["name", "sort_name", "reference_name", "mbid", "begin_date", "end_date", "area", "gender", "ended"]
 
-    readonly_fields = ["id", "mbid", "edits_pending", "last_updated"]
+    readonly_fields = ["id", "mbid", "edits_pending", "last_updated", "created_in_mneia", "updated_in_mneia", "comment"]
+
+    fieldsets = [
+        (
+            "Basics",
+            {
+                "fields": [("name", "sort_name", "reference_name"), "gender"],
+            },
+        ),
+        (
+            "Dates",
+            {
+                "fields": [
+                    ("begin_date_year", "begin_date_month", "begin_date_day"),
+                    ("end_date_year", "end_date_month", "end_date_day"),
+                    "ended",
+                ],
+            },
+        ),
+        (
+            "Areas",
+            {
+                "fields": [("area", "begin_area", "end_area")],
+            },
+        ),
+        (
+            "Read Only",
+            {
+                "fields": ["mbid", "comment", "edits_pending", "last_updated", "created_in_mneia", "updated_in_mneia"],
+                "classes": ["collapse"],
+            },
+        ),
+    ]
