@@ -46,6 +46,7 @@ class LinkBookPublisher(abstract.LinkModel):
                 "edition": self.book.edition,
                 "area": str(self.book.area),
                 "publication_date": self.book.publication_date,
+                "isbn": self.book.isbn,
             },
             "publisher": {
                 "id": str(self.publisher.id),

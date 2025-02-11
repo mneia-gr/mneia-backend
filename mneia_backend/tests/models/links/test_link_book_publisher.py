@@ -43,6 +43,7 @@ def test_link_book_publisher_as_reference():
             ],
             "edition": "Β Έκδοση",
             "area": "Αθήνα",
+            "isbn": "9603221384",
         },
         "publisher": {
             "id": "1526d9b4-cd45-4790-83c4-a7f92bbc80c4",
