@@ -45,7 +45,6 @@ class LinkBookPublisher(abstract.LinkModel):
                 "authors": [],
                 "editors": [],
                 "edition": self.book.edition,
-                "area": str(self.book.area),
                 "publication_date": self.book.publication_date,
                 "isbn": self.book.isbn,
             },
@@ -54,6 +53,9 @@ class LinkBookPublisher(abstract.LinkModel):
                 "name": self.publisher.name,
             },
         }
+
+        if self.book.area:  # not every book has a known publication area
+            _["book"]["area"] = str(self.book.area)
 
         for author in self.book.authors:
             _["book"]["authors"].append(

@@ -31,9 +31,10 @@ class Publisher(abstract.Model):
     class Meta:
         verbose_name = "Publisher"
         verbose_name_plural = "Publishers"
+        ordering = ["name"]
 
 
 @admin.register(Publisher)
 class PersonAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Publisher._meta.fields]
+    list_display = ["name"]
     readonly_fields = ["id", "created_in_mneia", "updated_in_mneia"]
