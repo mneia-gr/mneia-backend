@@ -1,4 +1,5 @@
 [build-system]
+# is the "build" dependency required here?
 requires = [
     "setuptools>=75.0",
     "build>=1.2.2",

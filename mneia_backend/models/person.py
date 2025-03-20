@@ -1,3 +1,4 @@
+import datetime
 from typing import Dict, Optional
 
 from django.contrib import admin
@@ -80,6 +81,14 @@ class Person(abstract.Model):
     @property
     def end_date(self) -> Optional[str]:
         return prettify_date(self.end_date_year, self.end_date_month, self.end_date_day)
+
+    @property
+    def end_date_year_interval(self) -> Optional[int]:
+        """
+        Returns the number of years since the Person's death. Used to calculate if a Person's Works are in the Public
+        Domain.
+        """
+        return datetime.datetime.now().year - self.end_date_year if self.end_date_year else None
 
     def __str__(self) -> str:
         return self.name

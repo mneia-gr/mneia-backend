@@ -2,6 +2,7 @@ import uuid
 from unittest import mock
 
 import pytest
+from freezegun import freeze_time
 from rest_framework.test import APIClient
 
 from mneia_backend.models.person import Person
@@ -124,3 +125,13 @@ def test_person_as_yaml():
             "books": [],
         },
     }
+
+
+@freeze_time("2025-03-20 12:54:00")
+@pytest.mark.django_db
+def test_person_end_date_year_interval():
+    person = Person.objects.get(id="7ea22d2b-4781-4882-af6f-15a6ca286501")  # from fixture
+    assert person.end_date_year_interval == 77
+
+    person = Person.objects.get(id="63eec1f5-f535-46a0-9fd3-6826a4f09e5c")
+    assert person.end_date_year_interval is None
