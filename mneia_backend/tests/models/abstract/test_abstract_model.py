@@ -118,7 +118,7 @@ def test_area_type_yaml_export_dir(mock_path_home):
     """
     mock_path_home.return_value = Path("/foo/bar/")
     area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
-    assert area_type.yaml_export_dir == Path("/foo/bar/Mneia/mneia-gr.github.io/collections/_area-types/")
+    assert area_type.yaml_export_dir == Path("/foo/bar/Mneia/mneia-jekyll/collections/_area-types/")
 
 
 @pytest.mark.django_db
@@ -129,7 +129,7 @@ def test_area_type_yaml_export_file(mock_path_home):
     area_type = AreaType.objects.get(id="06dd0ae4-8c74-30bb-b43d-95dcedf961de")  # from fixture
 
     assert area_type.yaml_export_file == Path(
-        "/foo/bar/Mneia/mneia-gr.github.io/collections/_area-types/06dd0ae4-8c74-30bb-b43d-95dcedf961de.md"
+        "/foo/bar/Mneia/mneia-jekyll/collections/_area-types/06dd0ae4-8c74-30bb-b43d-95dcedf961de.md"
     )
 
 

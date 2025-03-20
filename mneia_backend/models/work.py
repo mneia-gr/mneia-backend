@@ -34,6 +34,13 @@ class Work(abstract.Model):
         return [link_person_work.person for link_person_work in links_person_work]
 
     @property
+    def is_in_the_public_domain(self):
+        """
+        Returns whether a Work is in the Public Domain.
+        """
+        return not any([author.end_date_year_interval < 70 for author in self.authors])
+
+    @property
     def as_yaml(self) -> Dict:
         return {
             "name": self.name,
@@ -46,6 +53,7 @@ class Work(abstract.Model):
                     for link_to_magazine_issue in self.links_to_magazine_issues.all()
                 ]
             },
+            "public-domain": self.is_in_the_public_domain,
         }
 
     class Meta:

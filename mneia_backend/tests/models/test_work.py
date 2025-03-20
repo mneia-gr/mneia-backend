@@ -64,4 +64,5 @@ def test_work_as_yaml():
                 }
             ]
         },
+        "public-domain": True,
     }
