@@ -2,7 +2,9 @@ from typing import Dict, Optional
 
 import rest_framework
 from django.contrib import admin
+from django.core.exceptions import ValidationError
 from django.db import models
+from isbnlib import is_isbn10, is_isbn13
 
 from mneia_backend.models import abstract
 from mneia_backend.models.link_type import LinkType
@@ -10,11 +12,25 @@ from mneia_backend.models.links.book_person import LinkBookPerson
 from mneia_backend.utils import prettify_date
 
 
+def validate_isbn(value) -> None:
+    if value is None:
+        return
+    if len(value) not in [10, 13]:
+        raise ValidationError(
+            "Value %(value)s is neither 10 nor 13 digits long, got %(length)i digits.",
+            params={"value": value, "length": len(value)},
+        )
+    if len(value) == 10 and not is_isbn10(value):
+        raise ValidationError(f"Value {value} is not valid ISBN10.")
+    if len(value) == 13 and not is_isbn13(value):
+        raise ValidationError(f"Value {value} is not valid ISBN13.")
+
+
 class Book(abstract.Model):
     name = models.CharField(max_length=255)
     edition = models.CharField(max_length=255)
     format = models.ForeignKey("BookFormat", related_name="books", on_delete=models.PROTECT)
-    isbn = models.CharField("ISBN", max_length=13, null=True, blank=True)
+    isbn = models.CharField("ISBN", max_length=13, null=True, blank=True, validators=[validate_isbn])
     pages_number = models.PositiveSmallIntegerField(
         "Pages Number", help_text="The number of pages in this book", null=True, blank=True
     )

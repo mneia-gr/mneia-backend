@@ -1,6 +1,7 @@
 import pytest
+from django.core.exceptions import ValidationError
 
-from mneia_backend.models.book import Book
+from mneia_backend.models.book import Book, validate_isbn
 
 
 @pytest.mark.django_db
@@ -63,3 +64,30 @@ def test_book_as_yaml():
             ]
         },
     }
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        ("960211634X"),
+        ("9789606882333"),
+        (None),
+    ],
+)
+def test_validate_isbn_is_valid(value):
+    """Valid ISBN or `None` should return `None`"""
+    assert validate_isbn(value) is None
+
+
+@pytest.mark.parametrize(
+    "value, match",
+    [
+        ("asd", "Value asd is neither 10 nor 13 digits long, got 3 digits."),
+        ("FOOBAR163X", "Value FOOBAR163X is not valid ISBN10."),
+        ("FOOBAR6882333", "Value FOOBAR6882333 is not valid ISBN13."),
+    ],
+)
+def test_validate_isbn_is_not_valid(value, match):
+    """Invalid ISBN values should raise ValidationError."""
+    with pytest.raises(ValidationError, match=match):
+        validate_isbn(value)
