@@ -46,6 +46,13 @@ def test_link_book_publisher_as_reference():
             "area": "Αθήνα",
             "isbn": {
                 "hyphenated": "960-322-138-4",
+                "prefix": None,
+                "group": "960",
+                "group_name": "Greece",
+                "publisher": "322",
+                "publisher_name": "Εκδόσεις Αιγόκερως",
+                "article": "138",
+                "check_digit": "4",
             },
         },
         "publisher": {

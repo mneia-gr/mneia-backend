@@ -28,6 +28,13 @@ def test_publisher_as_yaml():
                         "publication_date": "2000",
                         "isbn": {
                             "hyphenated": "960-322-138-4",
+                            "prefix": None,
+                            "group": "960",
+                            "group_name": "Greece",
+                            "publisher": "322",
+                            "publisher_name": "Εκδόσεις Αιγόκερως",
+                            "article": "138",
+                            "check_digit": "4",
                         },
                     },
                     "publisher": {"id": "1526d9b4-cd45-4790-83c4-a7f92bbc80c4", "name": "Εκδόσεις Αιγόκερως"},

@@ -62,6 +62,13 @@ class LinkBookPublisher(abstract.LinkModel):
             isbn = ISBN(self.book.isbn)
             _["book"]["isbn"] = {
                 "hyphenated": isbn.hyphenated,
+                "prefix": isbn.prefix,
+                "group": isbn.group,
+                "group_name": isbn.group_name,
+                "publisher": isbn.publisher,
+                "publisher_name": isbn.publisher_name,
+                "article": isbn.article,
+                "check_digit": isbn.check_digit,
             }
 
         for author in self.book.authors:
