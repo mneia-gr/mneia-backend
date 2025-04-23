@@ -18,6 +18,7 @@ dependencies = [
     "Babel >= 2.16.0",
     "markdown2 >= 2.5.3",
     "isbnlib >= 3.10.14",
+    "mneia_isbn",
 ]
 description = "A Django app for Mneia backend."
 readme = "README.md"

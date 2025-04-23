@@ -3,6 +3,7 @@ from typing import Dict
 import rest_framework
 from django.contrib import admin
 from django.db import models
+from mneia_isbn import ISBN
 
 from mneia_backend.models import abstract
 
@@ -46,7 +47,7 @@ class LinkBookPublisher(abstract.LinkModel):
                 "editors": [],
                 "edition": self.book.edition,
                 "publication_date": self.book.publication_date,
-                "isbn": self.book.isbn,
+                "isbn": None,
             },
             "publisher": {
                 "id": str(self.publisher.id),
@@ -56,6 +57,12 @@ class LinkBookPublisher(abstract.LinkModel):
 
         if self.book.area:  # not every book has a known publication area
             _["book"]["area"] = str(self.book.area)
+
+        if self.book.isbn:  # not every book has an ISBN
+            isbn = ISBN(self.book.isbn)
+            _["book"]["isbn"] = {
+                "hyphenated": isbn.hyphenated,
+            }
 
         for author in self.book.authors:
             _["book"]["authors"].append(
