@@ -61,12 +61,16 @@ test = [
     "pytest-cov",
     "pytest-django",
     "flake8",
+    "flake8-pyproject",
     "black",
     "isort",
     "bandit",
     "coverage",
     "freezegun",
 ]
+
+[tool.flake8]
+max-line-length=120
 
 [tool.black]
     line-length = 120
@@ -81,3 +85,15 @@ test = [
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "mneia_backend.tests.settings"
+
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "manage.py",
+    "conftest.py",
+    "mneia_backend/migrations/*.py",
+    "mneia_backend/tests/*",
+]
+
+[tool.coverage.report]
+show_missing = true
