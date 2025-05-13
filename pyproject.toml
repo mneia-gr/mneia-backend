@@ -1,9 +1,5 @@
 [build-system]
-# is the "build" dependency required here?
-requires = [
-    "setuptools>=75.0",
-    "build>=1.2.2",
-]
+requires = ["setuptools", "build"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -46,17 +42,30 @@ classifiers = [
 [project.urls]
 Homepage = "https://mneia.gr/"
 
-[project.optional-dependencies]
+[dependency-groups]
+# `pip` supports `dependency-groups` from version 25.1. Usage:
+#
+#   pip install --group build
+#   pip install --group test
+#
+# References:
+#
+#   https://github.com/pypa/pip/issues/12963
+#   https://github.com/pypa/pip/pull/13065
+#
+# You only need "build" dependencies if you are building the package locally:
+build = ["setuptools", "build"]
+# You only need test dependencies if you are running unit tests:
 test = [
     "pytest",
     "pytest-cov",
     "pytest-django",
-    "flake8 >= 7.0.0",
-    "black >= 24.3.0",
-    "isort >= 5.13.2",
-    "bandit >= 1.7.8",
-    "coverage >= 7.4.4",
-    "freezegun >= 1.5.1",
+    "flake8",
+    "black",
+    "isort",
+    "bandit",
+    "coverage",
+    "freezegun",
 ]
 
 [tool.black]
