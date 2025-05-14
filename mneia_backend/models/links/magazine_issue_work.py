@@ -43,6 +43,7 @@ class LinkMagazineIssueWork(abstract.LinkModel):
                 {
                     "id": str(author.id),
                     "name": author.name,
+                    "reference_name": author.reference_name,
                 }
             )
 

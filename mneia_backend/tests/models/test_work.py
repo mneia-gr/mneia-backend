@@ -56,7 +56,13 @@ def test_work_as_yaml():
                         "issue_number": "2ον " "Τεύχος",
                     },
                     "work": {
-                        "authors": [{"id": "7ea22d2b-4781-4882-af6f-15a6ca286501", "name": "Σύλβιος"}],
+                        "authors": [
+                            {
+                                "id": "7ea22d2b-4781-4882-af6f-15a6ca286501",
+                                "name": "Σύλβιος",
+                                "reference_name": "Σύλβιος",
+                            }
+                        ],
                         "id": "4adcfb27-8f2a-4122-8906-93ff18a3b9dc",
                         "name": "Από το «Καπρίς»",
                         "type": "Ποίημα",
